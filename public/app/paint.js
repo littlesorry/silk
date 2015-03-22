@@ -64,7 +64,8 @@
         plots.push({
             x: (x << 0),
             y: (y << 0)
-        }); // round numbers for touch screens
+        }); 
+        // round numbers for touch screens
 
         drawOnCanvas(color, plots);
     }
@@ -78,12 +79,8 @@
         e.preventDefault();
         isActive = false;
 
-        publish({
-            color: color,
-            plots: plots
-        });
-
         paths.push(plots);
+        addMeshes && addMeshes(plots);
         plots = [];
     }
 

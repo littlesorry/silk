@@ -1,6 +1,9 @@
 var PI = 3.1415926535898;
 var deg90 = PI/2;
 var deg60 = PI/3;
+var deg30 = PI/6;
+var degD9 = PI/9;
+
 
 var scene = new THREE.Scene();
 // var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
@@ -9,23 +12,20 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor(0xdedede);
 renderer.domElement.id = "threejs";
-// document.body.appendChild( renderer.domElement );
 $("body").prepend($(renderer.domElement));
 
-// camera.position.z = 20;
-// camera.position.x = 0;
+var camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 2, 900 );
+camera.position.z = 12;
+camera.position.x = window.innerWidth / 2;
+camera.position.y = -(window.innerHeight / 2);
 
-var camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 10 );
-camera.position.z = 5;
-
-
-var light = new THREE.PointLight( 0xffffff, 1, 1000 );
-light.position.set( 600, 050, 050 );
+var light = new THREE.PointLight( 0xffffff, 1, 1920 );
+light.position.set( window.innerWidth, window.innerHeight, 20 );
 scene.add( light );
 
-var light2 = new THREE.PointLight( 0xffffff, 5, 1200 );
-light2.position.set( -700, -050, 500 );
-scene.add( light2 );
+// var light2 = new THREE.PointLight( 0xffffff, 1, window.innerWidth * 1.4 );
+// light2.position.set( window.innerWidth / 2, 50, 0 );
+// scene.add( light2 );
 
 var rectLength = 18, rectWidth = 0.5;
 
@@ -41,12 +41,12 @@ var material = new THREE.MeshPhongMaterial({color: 0xff33aa, shading: THREE.Flat
 var added = []
 function addMesh(start, end) {
 	var vertexPositions = [
-		[start.x, start.y, 0],
-		[end.x, end.y, 0],
-		[start.x, start.y, -1],
-		[start.x, start.y, -1],
-		[end.x, end.y, -1],
-		[end.x, end.y, 0]
+		[start.x, - start.y, 0],
+		[end.x, - end.y, 0],
+		[start.x, - start.y, -5],
+		[start.x, - start.y, -5],
+		[end.x, - end.y, -5],
+		[end.x, - end.y, 0]
 	];
 	var vertices = new Float32Array( vertexPositions.length * 3 ); 
 	for ( var i = 0; i < vertexPositions.length; i++ ) { 
@@ -61,17 +61,26 @@ function addMesh(start, end) {
 	added.push(mesh);
 }
 
-addMesh({x: -1, y: -1}, {x: 1, y: 1});
-addMesh({x: 1, y: 1}, {x: 2, y: 1});
+function addMeshes(points) {
+	if (points && points.length > 1) {
+		for (var i = 0; i < points.length - 1; i++) {
+			addMesh(points[i], points[i + 1]);		
+		}
+	}
+}
 
+// addMeshes([{x: -1, y: 1}, {x: -1, y: -1}, {x: 1, y: 1}, {x: 2, y: 1}]);
+var rotationY = 0;
 var render = function () {
   requestAnimationFrame( render );
 
   added.forEach(function(mesh) {
-  	mesh.rotation.y += 0.005;
+  	mesh.rotation.y = degD9;
   });
 
   renderer.render(scene, camera);
+  rotationY += 0.005;
+  rotationY > deg30 && (rotationY = 0);
 };
 
 render();
