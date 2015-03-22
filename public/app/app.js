@@ -1,216 +1,77 @@
-var SCREEN_WIDTH = window.innerWidth;
-var SCREEN_HEIGHT = window.innerHeight;
+var PI = 3.1415926535898;
+var deg90 = PI/2;
+var deg60 = PI/3;
 
-var container, stats;
-var camera, scene, renderer, mesh;
-var cameraRig, activeCamera, activeHelper;
-var cameraPerspective, cameraOrtho;
-var cameraPerspectiveHelper, cameraOrthoHelper;
+var scene = new THREE.Scene();
+// var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
-init();
-animate();
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setClearColor(0xdedede);
+renderer.domElement.id = "threejs";
+// document.body.appendChild( renderer.domElement );
+$("body").prepend($(renderer.domElement));
 
-function init() {
+// camera.position.z = 20;
+// camera.position.x = 0;
 
-	container = document.createElement( 'div' );
-	document.body.appendChild( container );
-
-	scene = new THREE.Scene();
-
-	//
-
-	camera = new THREE.PerspectiveCamera( 50, 0.5 * SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
-	camera.position.z = 2500;
-
-	cameraPerspective = new THREE.PerspectiveCamera( 50, 0.5 * SCREEN_WIDTH / SCREEN_HEIGHT, 150, 1000 );
-
-	cameraPerspectiveHelper = new THREE.CameraHelper( cameraPerspective );
-	scene.add( cameraPerspectiveHelper );
-
-	//
-
-	cameraOrtho = new THREE.OrthographicCamera( 0.5 * SCREEN_WIDTH / - 2, 0.5 * SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_HEIGHT / - 2, 150, 1000 );
-
-	cameraOrthoHelper = new THREE.CameraHelper( cameraOrtho );
-	scene.add( cameraOrthoHelper );
-
-	//
-
-	activeCamera = cameraPerspective;
-	activeHelper = cameraPerspectiveHelper;
+var camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 10 );
+camera.position.z = 5;
 
 
-	// counteract different front orientation of cameras vs rig
+var light = new THREE.PointLight( 0xffffff, 1, 1000 );
+light.position.set( 600, 050, 050 );
+scene.add( light );
 
-	cameraOrtho.rotation.y = Math.PI;
-	cameraPerspective.rotation.y = Math.PI;
+var light2 = new THREE.PointLight( 0xffffff, 5, 1200 );
+light2.position.set( -700, -050, 500 );
+scene.add( light2 );
 
-	cameraRig = new THREE.Object3D();
+var rectLength = 18, rectWidth = 0.5;
 
-	cameraRig.add( cameraPerspective );
-	cameraRig.add( cameraOrtho );
+var rectShape = new THREE.Shape();
+rectShape.moveTo( 0,0 ); 
+rectShape.lineTo( 0, rectWidth );
+rectShape.lineTo( rectLength, rectWidth );
+rectShape.lineTo( rectLength, 0 );
+rectShape.lineTo( 0, 0 );
 
-	scene.add( cameraRig );
+var material = new THREE.MeshPhongMaterial({color: 0xff33aa, shading: THREE.FlatShading, side: THREE.DoubleSide});
 
-	//
-
-	mesh = new THREE.Mesh( new THREE.SphereGeometry( 100, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } ) );
+var added = []
+function addMesh(start, end) {
+	var vertexPositions = [
+		[start.x, start.y, 0],
+		[end.x, end.y, 0],
+		[start.x, start.y, -1],
+		[start.x, start.y, -1],
+		[end.x, end.y, -1],
+		[end.x, end.y, 0]
+	];
+	var vertices = new Float32Array( vertexPositions.length * 3 ); 
+	for ( var i = 0; i < vertexPositions.length; i++ ) { 
+		vertices[ i * 3 + 0 ] = vertexPositions[i][0]; 
+		vertices[ i * 3 + 1 ] = vertexPositions[i][1]; 
+		vertices[ i * 3 + 2 ] = vertexPositions[i][2]; 
+	} 
+	var geometry = new THREE.BufferGeometry(); 
+	geometry.addAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) ); 
+	var mesh = new THREE.Mesh( geometry, material );
 	scene.add( mesh );
-
-	var mesh2 = new THREE.Mesh( new THREE.SphereGeometry( 50, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0x00ff00, wireframe: true } ) );
-	mesh2.position.y = 150;
-	mesh.add( mesh2 );
-
-	var mesh3 = new THREE.Mesh( new THREE.SphereGeometry( 5, 16, 8 ), new THREE.MeshBasicMaterial( { color: 0x0000ff, wireframe: true } ) );
-	mesh3.position.z = 150;
-	cameraRig.add( mesh3 );
-
-	//
-
-	var geometry = new THREE.Geometry();
-
-	for ( var i = 0; i < 10000; i ++ ) {
-
-		var vertex = new THREE.Vector3();
-		vertex.x = THREE.Math.randFloatSpread( 2000 );
-		vertex.y = THREE.Math.randFloatSpread( 2000 );
-		vertex.z = THREE.Math.randFloatSpread( 2000 );
-
-		geometry.vertices.push( vertex );
-
-	}
-
-	var particles = new THREE.PointCloud( geometry, new THREE.PointCloudMaterial( { color: 0x888888 } ) );
-	scene.add( particles );
-
-	//
-
-
-	renderer = new THREE.WebGLRenderer( { antialias: true } );
-	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
-	renderer.domElement.style.position = "relative";
-	container.appendChild( renderer.domElement );
-
-	renderer.autoClear = false;
-
-	//
-
-	stats = new Stats();
-	container.appendChild( stats.domElement );
-
-	//
-
-	window.addEventListener( 'resize', onWindowResize, false );
-	document.addEventListener( 'keydown', onKeyDown, false );
-
+	added.push(mesh);
 }
 
-//
+addMesh({x: -1, y: -1}, {x: 1, y: 1});
+addMesh({x: 1, y: 1}, {x: 2, y: 1});
 
-function onKeyDown ( event ) {
+var render = function () {
+  requestAnimationFrame( render );
 
-	switch( event.keyCode ) {
+  added.forEach(function(mesh) {
+  	mesh.rotation.y += 0.005;
+  });
 
-		case 79: /*O*/
-
-			activeCamera = cameraOrtho;
-			activeHelper = cameraOrthoHelper;
-
-			break;
-
-		case 80: /*P*/
-
-			activeCamera = cameraPerspective;
-			activeHelper = cameraPerspectiveHelper;
-
-			break;
-
-	}
-
+  renderer.render(scene, camera);
 };
 
-//
-
-function onWindowResize( event ) {
-
-	SCREEN_WIDTH = window.innerWidth;
-	SCREEN_HEIGHT = window.innerHeight;
-
-	renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
-
-	camera.aspect = 0.5 * SCREEN_WIDTH / SCREEN_HEIGHT;
-	camera.updateProjectionMatrix();
-
-	cameraPerspective.aspect = 0.5 * SCREEN_WIDTH / SCREEN_HEIGHT;
-	cameraPerspective.updateProjectionMatrix();
-
-	cameraOrtho.left   = - 0.5 * SCREEN_WIDTH / 2;
-	cameraOrtho.right  =   0.5 * SCREEN_WIDTH / 2;
-	cameraOrtho.top    =   SCREEN_HEIGHT / 2;
-	cameraOrtho.bottom = - SCREEN_HEIGHT / 2;
-	cameraOrtho.updateProjectionMatrix();
-
-}
-
-//
-
-function animate() {
-
-	requestAnimationFrame( animate );
-
-	render();
-	stats.update();
-
-}
-
-
-function render() {
-
-	var r = Date.now() * 0.0005;
-
-	mesh.position.x = 700 * Math.cos( r );
-	mesh.position.z = 700 * Math.sin( r );
-	mesh.position.y = 700 * Math.sin( r );
-
-	mesh.children[ 0 ].position.x = 70 * Math.cos( 2 * r );
-	mesh.children[ 0 ].position.z = 70 * Math.sin( r );
-
-	if ( activeCamera === cameraPerspective ) {
-
-		cameraPerspective.fov = 35 + 30 * Math.sin( 0.5 * r );
-		cameraPerspective.far = mesh.position.length();
-		cameraPerspective.updateProjectionMatrix();
-
-		cameraPerspectiveHelper.update();
-		cameraPerspectiveHelper.visible = true;
-
-		cameraOrthoHelper.visible = false;
-
-	} else {
-
-		cameraOrtho.far = mesh.position.length();
-		cameraOrtho.updateProjectionMatrix();
-
-		cameraOrthoHelper.update();
-		cameraOrthoHelper.visible = true;
-
-		cameraPerspectiveHelper.visible = false;
-
-	}
-
-	cameraRig.lookAt( mesh.position );
-
-	renderer.clear();
-
-	activeHelper.visible = false;
-
-	renderer.setViewport( 0, 0, SCREEN_WIDTH/2, SCREEN_HEIGHT );
-	renderer.render( scene, activeCamera );
-
-	activeHelper.visible = true;
-
-	renderer.setViewport( SCREEN_WIDTH/2, 0, SCREEN_WIDTH/2, SCREEN_HEIGHT );
-	renderer.render( scene, camera );
-
-}
+render();
