@@ -7,9 +7,9 @@ var d3 = (function() {
 
 	return {
 		meshes: [],
-		silkWidth: 8,
+		silkWidth: 12,
 		offsetAnchorX: 3,
-		material: new THREE.MeshPhongMaterial({color: 0xff33aa, shading: THREE.FlatShading, side: THREE.DoubleSide}),
+		material: new THREE.MeshPhongMaterial({color: 0xff88ee, shading: THREE.FlatShading, side: THREE.DoubleSide}),
 		init: function(elem, props) {
 			this.elem = elem = elem || "canvas";
 			this.props = props = props || {};
@@ -41,11 +41,11 @@ var d3 = (function() {
 			camera.toOrthographic();
 			camera.setZoom(1.66);
 
-			scene.add( new THREE.AmbientLight( 0x999999 ) );
+			scene.add( new THREE.AmbientLight( 0x888888 ) );
 			var directionalLight = new THREE.DirectionalLight( 0.95* 0xffffff );
 			directionalLight.position.x = 1;
 			directionalLight.position.y = 1;
-			directionalLight.position.z = 1;
+			directionalLight.position.z = 3;
 			directionalLight.position.normalize();
 			scene.add( directionalLight );
 
@@ -61,7 +61,7 @@ var d3 = (function() {
 				renderer.render( scene, camera );
 			}
 		},
-		
+
 		addMesh: function(start, end) {
 
 			var vertexPositions = [
