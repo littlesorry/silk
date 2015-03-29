@@ -42,47 +42,43 @@
     <script src="lib/three-renderer.js"></script>
     <script src="lib/three-camera.js"></script>
     <script src="app/2d.js"></script>
-    <script id="vertexShader" type="x-shader/x-vertex">
-        precision mediump float;
-        precision mediump int;
 
-        uniform mat4 modelViewMatrix; // optional
-        uniform mat4 projectionMatrix; // optional
+    <script type="x-shader/x-vertex" id="vertexshader">
 
-        attribute vec3 position;
-        attribute vec4 color;
+      uniform float amplitude;
 
-        varying vec3 vPosition;
-        varying vec4 vColor;
+      attribute vec3 displacement;
+      attribute vec3 customColor;
 
-        void main() {
+      varying vec3 vColor;
 
-          vPosition = position;
-          vColor = color;
+      void main() {
 
-          gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+        vec3 newPosition = position + amplitude * displacement;
 
-        }
-      </script>
+        vColor = customColor;
 
-      <script id="fragmentShader" type="x-shader/x-fragment">
-        precision mediump float;
-        precision mediump int;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );
 
-        uniform float time;
+      }
 
-        varying vec3 vPosition;
-        varying vec4 vColor;
+    </script>
 
-        void main() {
+    <script type="x-shader/x-fragment" id="fragmentshader">
 
-          vec4 color = vec4( vColor );
-          color.r += sin( vPosition.x * 10.0 + time ) * 0.5;
+      uniform vec3 color;
+      uniform float opacity;
 
-          gl_FragColor = color;
+      varying vec3 vColor;
 
-        }
-      </script>
+      void main() {
+
+        gl_FragColor = vec4( vColor * color, opacity );
+
+      }
+
+    </script>
+
       <script src="app/3d.js"></script>
       <script src="app/app.js"></script>
   </body>

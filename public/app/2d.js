@@ -51,7 +51,6 @@ function initCanvas(elem, props) {
 
     function draw(e) {
         e.preventDefault(); // prevent continuous touch event process e.g. scrolling!
-        if (debug) console.log({x: e.x, y: e.y});
         if (!isActive) return;
 
         var x = isTouchSupported ? (e.targetTouches[0].pageX - canvas.offsetLeft) : (e.offsetX || e.layerX - canvas.offsetLeft);

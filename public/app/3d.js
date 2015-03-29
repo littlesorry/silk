@@ -21,6 +21,29 @@ var d3 = (function() {
 			this.offsetX = props.d2Width/2;
 			this.offsetY = props.d2Height/2;
 
+			var object, uniforms, attributes;
+
+			attributes = {
+				displacement: {	type: 'v3', value: [] },
+				customColor: {	type: 'c', value: [] }
+			};
+
+			uniforms = {
+				amplitude: { type: "f", value: 5.0 },
+				opacity:   { type: "f", value: 0.3 },
+				color:     { type: "c", value: new THREE.Color( 0xff0000 ) }
+			};
+
+			this.shaderMaterial = new THREE.ShaderMaterial( {
+				uniforms:       uniforms,
+				attributes:     attributes,
+				vertexShader:   document.getElementById( 'vertexshader' ).textContent,
+				fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
+				blending:       THREE.AdditiveBlending,
+				depthTest:      false,
+				transparent:    true
+			});
+
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( props.width || window.innerWidth, props.height || window.innerHeight );
 			renderer.setClearColor(0xeeeeee);
@@ -36,10 +59,10 @@ var d3 = (function() {
 									- 500, 
 									1000 );
 			camera.position.x = 0;
-			camera.position.y = this.offsetY/2;
+			camera.position.y = this.offsetY/2 - 5;
 			camera.position.z = 200;
 			camera.toOrthographic();
-			camera.setZoom(1.66);
+			camera.setZoom(1.5);
 
 			scene.add( new THREE.AmbientLight( 0x888888 ) );
 			var directionalLight = new THREE.DirectionalLight( 0.95* 0xffffff );

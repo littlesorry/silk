@@ -7,8 +7,8 @@ $(function() {
 							}});
 	d3.init("d3-canvas", {
 							container: "#d3-container"
-							, width: $("#d3-container").width()
-							, height: $("#d3-container").height()
+							, width: $("#canvas").width()
+							, height: $("#canvas").height()
 							, d2Width: d2.canvas.getAttribute("width")
 							, d2Height: d2.canvas.getAttribute("height")});
 });
