@@ -1,26 +1,22 @@
-(function() {
-    /* Canvas */
-
+function initCanvas(elem, props) {
     var drawHistory = false;
-    var canvas = document.getElementById('canvas');
+    var canvas = document.getElementById(elem);
     var ctx = canvas.getContext('2d');
-    var color = "red";
+    var color = props.strokeColor || "red";
 
-    canvas.width = Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
-    canvas.height = Math.min(document.documentElement.clientHeight, window.innerHeight || 300);
+    canvas.width = props.width || Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
+    // canvas.height = props.height || Math.min(document.documentElement.clientHeight, window.innerHeight || 300);
+    canvas.height = window.innerHeight;
+
 
     ctx.strokeStyle = color;
-    ctx.lineWidth = '2';
+    ctx.lineWidth = props.strokeWidth || '2';
     ctx.lineCap = ctx.lineJoin = 'round';
-
-    // /* Mouse and touch events */
-    // document.getElementById('colorSwatch').addEventListener('click', function() {
-    //   color = document.querySelector(':checked').getAttribute('data-color');
-    // }, false);
 
     var isTouchSupported = 'ontouchstart' in window;
     var isPointerSupported = navigator.pointerEnabled;
     var isMSPointerSupported = navigator.msPointerEnabled;
+    var debug = props.debug;
 
     var downEvent = isTouchSupported ? 'touchstart' : (isPointerSupported ? 'pointerdown' : (isMSPointerSupported ? 'MSPointerDown' : 'mousedown'));
     var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
@@ -29,8 +25,6 @@
     canvas.addEventListener(downEvent, startDraw, false);
     canvas.addEventListener(moveEvent, draw, false);
     canvas.addEventListener(upEvent, endDraw, false);
-
-    /* PubNub */
 
     var channel = 'draw';
 
@@ -57,6 +51,7 @@
 
     function draw(e) {
         e.preventDefault(); // prevent continuous touch event process e.g. scrolling!
+        if (debug) console.log({x: e.x, y: e.y});
         if (!isActive) return;
 
         var x = isTouchSupported ? (e.targetTouches[0].pageX - canvas.offsetLeft) : (e.offsetX || e.layerX - canvas.offsetLeft);
@@ -66,7 +61,6 @@
             y: (y << 0)
         }); 
         // round numbers for touch screens
-
         drawOnCanvas(color, plots);
     }
 
@@ -78,13 +72,17 @@
     function endDraw(e) {
         e.preventDefault();
         isActive = false;
-
         paths.push(plots);
-        addMeshes && addMeshes(plots);
+        if (props.onDraw) props.onDraw.call(null, plots);
         plots = [];
     }
 
-    window.getPaths = function() {
+    var getPaths = window.getPaths = function() {
       return paths;
     };
-})();
+
+    return {
+        canvas: canvas,
+        getPaths: getPaths
+    }
+};
