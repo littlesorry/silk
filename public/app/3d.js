@@ -7,9 +7,9 @@ var d3 = (function() {
 
 	return {
 		meshes: [],
-		silkWidth: 12,
+		silkWidth: 18,
 		offsetAnchorX: 3,
-		material: new THREE.MeshPhongMaterial({color: 0xff88ee, shading: THREE.FlatShading, side: THREE.DoubleSide}),
+		material: new THREE.MeshPhongMaterial({color: 0xf1a0c3, shading: THREE.FlatShading, side: THREE.DoubleSide}),
 		init: function(elem, props) {
 			this.elem = elem = elem || "canvas";
 			this.props = props = props || {};
@@ -59,18 +59,30 @@ var d3 = (function() {
 									- 500, 
 									1000 );
 			camera.position.x = 0;
-			camera.position.y = this.offsetY/2 - 5;
+			camera.position.y = this.offsetY/2 - 25;
 			camera.position.z = 200;
 			camera.toOrthographic();
 			camera.setZoom(1.5);
 
-			scene.add( new THREE.AmbientLight( 0x888888 ) );
-			var directionalLight = new THREE.DirectionalLight( 0.95* 0xffffff );
-			directionalLight.position.x = 1;
-			directionalLight.position.y = 1;
-			directionalLight.position.z = 3;
-			directionalLight.position.normalize();
-			scene.add( directionalLight );
+          var sphere = new THREE.SphereGeometry( 0.25, 16, 8 );
+			scene.add( new THREE.AmbientLight( 0xfef1f3 ) );
+			var light1 = new THREE.PointLight( 0xf1a0c3, 1, 100 );
+          light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xf1a0c3 } ) ) );
+          light1.position.x = 60;
+          light1.position.y = 0;
+          light1.position.z = 10;
+          scene.add( light1 );
+
+          for (var i = -5; i <= 5; i++) {
+            for (var j = -5; j <= 5; j++) {
+              var light1 = new THREE.PointLight( 0xf1a0c3, 1, 100 );
+              light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xf1a0c3 } ) ) );
+              light1.position.x = 120 * i;
+              light1.position.y = 100 * j;
+              light1.position.z = 24;
+              scene.add( light1 );
+            }
+          }
 
 			animate();
 			function animate() {
@@ -115,8 +127,19 @@ var d3 = (function() {
 					y: point.y - offsetY
 				};
 			};
+			function averagePoints(points) {
+              var result = [];
+              for (var i = 0; i < points.length - 1; i++) {
+                result.push({
+                  x: (points[i].x + points[i+1].x)/2
+                  , y: (points[i].y + points[i+1].y)/2
+                });
+              }
+              return result;
+            };
 
 			if (points && points.length > 1) {
+                points = averagePoints(averagePoints(points));
 				for (var i = 0; i < points.length - 1; i++) {
 					this.addMesh(translate(points[i], this.offsetX, this.offsetY)
 								, translate(points[i + 1], this.offsetX, this.offsetY));		
