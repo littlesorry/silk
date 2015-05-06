@@ -7,9 +7,9 @@ var d3 = (function() {
 
 	return {
 		meshes: [],
-		silkWidth: 18,
+		silkWidth: 24,
 		offsetAnchorX: 3,
-		material: new THREE.MeshPhongMaterial({color: 0xf1a0c3, shading: THREE.FlatShading, side: THREE.DoubleSide}),
+		material: new THREE.MeshPhongMaterial({color: 0xeb008b, shading: THREE.FlatShading, side: THREE.DoubleSide}),
 		init: function(elem, props) {
 			this.elem = elem = elem || "canvas";
 			this.props = props = props || {};
@@ -79,7 +79,7 @@ var d3 = (function() {
               light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xf1a0c3 } ) ) );
               light1.position.x = 120 * i;
               light1.position.y = 100 * j;
-              light1.position.z = 24;
+              light1.position.z = 27;
               scene.add( light1 );
             }
           }
