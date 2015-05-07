@@ -16,7 +16,6 @@ $(function() {
 
 	$('.nav-tabs a').click(function (e) {
 	  e.preventDefault();
-	  $(this).tab('show');
 	  if ($(this).text() == '3D') {
 		d3.init("d3-canvas", {
 								container: "#d3-container"
@@ -30,5 +29,7 @@ $(function() {
 	  } else {
 	  	$("#d3-container").html("");
 	  }
+
+  	  $(this).tab('show');
 	});
 });
