@@ -97,9 +97,14 @@ var d3 = (function() {
 			};
 
 			function render() {
-				camera.lookAt( scene.position );
-
-				renderer.render( scene, camera );
+				try {
+					camera.lookAt( scene.position );
+					renderer.render( scene, camera );
+					
+				} catch(e) {
+					alert("render error: ");
+					alert(e);
+				}
 			}
 		},
 

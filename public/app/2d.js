@@ -38,19 +38,6 @@ function initCanvas(elem, props) {
         ctx.moveTo(plots[plots.length -2].x, plots[plots.length -2].y);
         ctx.lineTo(plots[plots.length -1].x, plots[plots.length -1].y);
         ctx.stroke();
-
-        // for (var i = 1; i < plots.length; i++) {
-        //     ctx.lineTo(plots[i].x, plots[i].y);
-        // }
-        /**
-        if(lastPt!=null) {
-          ctx.beginPath();
-          ctx.moveTo(lastPt.x, lastPt.y);
-          ctx.lineTo(e.touches[0].pageX, e.touches[0].pageY);
-          ctx.stroke();
-        }
-        lastPt = {x:e.touches[0].pageX, y:e.touches[0].pageY};
-        */
     }
 
     var isActive = false;
