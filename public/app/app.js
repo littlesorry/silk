@@ -1,4 +1,9 @@
 $(function() {
+	$('.nav-tabs a').click(function (e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	})
+
 	var d2 = initCanvas("canvas", {debug: true
 							, width: $("#canvas").width()
 							, height: $("#canvas").height()
