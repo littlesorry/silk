@@ -1,8 +1,5 @@
 $(function() {
-	$('.nav-tabs a').click(function (e) {
-	  e.preventDefault();
-	  $(this).tab('show');
-	})
+
 
 	var d2 = initCanvas("canvas", {debug: true
 							, width: $("#canvas").width()
@@ -16,4 +13,9 @@ $(function() {
 							, height: $("#canvas").height()
 							, d2Width: d2.canvas.getAttribute("width")
 							, d2Height: d2.canvas.getAttribute("height")});
+
+	$('.nav-tabs a').click(function (e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	});
 });
