@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "node-debug grunt test"
+    "test": "./node_modules/.bin/grunt test"
   },
   "dependencies": {
     "bluebird": "^2.9.25",

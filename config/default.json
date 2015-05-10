@@ -8,9 +8,9 @@
 		},
 		"models": {
 			"masterpiece": {
-				"author": "String",
-				"paths": "Array",
-				"createAt": "Date"
+				"author": "string",
+				"paths": "array",
+				"createdAt": "date"
 			}
 		}
 	}
