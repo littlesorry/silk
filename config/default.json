@@ -1,0 +1,17 @@
+{
+	"app": {
+
+	},
+	"data": {
+		"db": {
+			"url": "mongodb://localhost/silk"
+		},
+		"models": {
+			"masterpiece": {
+				"author": "String",
+				"paths": "Array",
+				"createAt": "Date"
+			}
+		}
+	}
+}
