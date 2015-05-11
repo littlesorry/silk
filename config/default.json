@@ -1,0 +1,17 @@
+{
+	"app": {
+		"port": 8000
+	},
+	"data": {
+		"db": {
+			"url": "mongodb://localhost/silk"
+		},
+		"models": {
+			"masterpiece": {
+				"author": "string",
+				"paths": "array",
+				"createdAt": "date"
+			}
+		}
+	}
+}
