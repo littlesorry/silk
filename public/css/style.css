@@ -1,12 +1,119 @@
-.btn-group {
-	z-index: 100;
-}
-#canvas {
-	width: 100%;
-	/*height: 100%;*/
-	display: block;
-	cursor: pointer;
+.hide {
+	display: none;
 }
 
-#d3-canvas {
+.page {
+	background-color: transparent;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	background-size: cover;
+}
+
+.page1 {
+	background: url(../assets/p1/1-01.png) bottom;
+}
+
+.page2 {
+	/**
+	  TODO:;
+	*/
+}
+
+.page3 {
+	background: url(../assets/p3/3-01.png) bottom;
+}
+
+.page3 .btn1 {
+	bottom: 18%;
+	left: 18%;
+}
+
+.page3 .btn2 {
+	bottom: 10%;
+	left: 18%;
+}
+
+.page3 .btn3 {
+	bottom: 10%;
+	right: 15%;
+}
+
+.page4 {
+	background: url(../assets/p4/4-01.png) bottom;
+}
+
+.page4 .btn1 {
+	top: 20%;
+	left: 5%;
+}
+
+.page4 .btn2 {
+	top: 20%;
+	right: 5%;
+}
+
+.page4 .btn3 {
+	bottom: 13%;
+	left: 5%;
+}
+
+.page4 .btn4 {
+	bottom: 13%;
+	right: 5%;
+}
+
+.page5 {
+	background: url(../assets/p5/5-01.png) bottom;
+}
+
+.page5 .canvas {
+	left: 0;
+	top: 16%;
+}
+
+.page5 .btn1 {
+	top: 12%;
+	left: 8%;
+}
+
+.page5 .btn2 {
+	top: 12%;
+	left: 50%;
+	margin-left: -80px;
+}
+
+.page5 .btn3 {
+	top: 12%;
+	right: 8%;
+}
+
+.page5 .btn4 {
+	bottom: 5%;
+	left: 50%;
+	margin-left: -150px;
+}
+
+.fixed {
+	position: absolute;
+}
+
+.fixed.top {
+	top: 0;
+}
+
+.fixed.bottom {
+	bottom: 0;
+}
+
+.fixed.left {
+	left: 0;
+}
+
+.fixed.right {
+	right: 0;
+}
+
+.fixed.center {
+	left: 50%;
 }

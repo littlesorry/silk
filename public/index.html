@@ -1,62 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Silk Demo</title>
+	<title>Silk</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="author" content="littlesorry@github">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/fullPage.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-
+	<div id="pageContain">
+		<!-- page 1-->
+		<div class="page page1 current">
+			<div class="contain" onclick="runPage.go(1);" ontouchstart="runPage.go(1);">
+				<img class="fixed top left" src="assets/p1/1-02.png">
+				<img class="fixed top left" src="assets/p1/1-03.png">
+			</div>
+		</div>
+		<!-- page 3-->
+		<div class="page page3">
+			<div class="contain">
+				<img class="fixed top left" style="margin-top:-1%" src="assets/p3/3-02.png">
+				<img class="fixed top left" style="" src="assets/p3/3-03.png">
+				<img class="fixed btn1" src="assets/p3/3-04_clip.png" onclick="runPage.go(2);" ontouchstart="runPage.go(2);">
+				<img class="fixed btn2" src="assets/p3/3-05_clip.png">
+				<img class="fixed btn3" src="assets/p3/3-05_clip.png">
+			</div>
+		</div>
+		<!-- page 4-->
+		<div class="page page4">
+			<div class="contain">
+				<img class="fixed top left" src="assets/p4/4-02.png">
+				<img class="fixed btn1" src="assets/p4/4-03_clip.png" onclick="runPage.go(3);" ontouchstart="runPage.go(3);">
+				<img class="fixed btn2" src="assets/p4/4-04_clip.png" onclick="runPage.go(3);" ontouchstart="runPage.go(3);">
+				<img class="fixed btn3" src="assets/p4/4-05_clip.png" onclick="runPage.go(3);" ontouchstart="runPage.go(3);">
+				<img class="fixed btn4" src="assets/p4/4-06_clip.png" onclick="runPage.go(3);" ontouchstart="runPage.go(3);">
+			</div>
+		</div>
+		<!-- page 5-->
+		<div class="page page5">
+			<div class="contain">
+				<img class="fixed canvas" src="assets/p5/5-05_clip.png">
+				<img class="fixed btn1" src="assets/p5/5-02_clip.png">
+				<img class="fixed btn2" src="assets/p5/5-03_clip.png">
+				<img class="fixed btn3" src="assets/p5/5-04_clip.png">
+				<img class="fixed btn4" src="assets/p5/5-06_clip.png">
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="lib/fullPage.js"></script>
+	<script type="text/javascript" src="app/main.js"></script>
 </body>
-	<section class="canvas-outer clearfix">
-		<canvas id="canvas">Canvas is not supported on this browser!</canvas>
-	</section>
-	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-	<script src="lib/three.js"></script>
-	
-	<script src="app/paint.js"></script>
-
-	<script id="vertexShader" type="x-shader/x-vertex">
-		precision mediump float;
-		precision mediump int;
-
-		uniform mat4 modelViewMatrix; // optional
-		uniform mat4 projectionMatrix; // optional
-
-		attribute vec3 position;
-		attribute vec4 color;
-
-		varying vec3 vPosition;
-		varying vec4 vColor;
-
-		void main()	{
-
-			vPosition = position;
-			vColor = color;
-
-			gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-
-		}
-	</script>
-
-	<script id="fragmentShader" type="x-shader/x-fragment">
-		precision mediump float;
-		precision mediump int;
-
-		uniform float time;
-
-		varying vec3 vPosition;
-		varying vec4 vColor;
-
-		void main()	{
-
-			vec4 color = vec4( vColor );
-			color.r += sin( vPosition.x * 10.0 + time ) * 0.5;
-
-			gl_FragColor = color;
-
-		}
-	</script>
-
-	<script src="app/app.js"></script>
 </html>
