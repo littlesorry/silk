@@ -1,6 +1,4 @@
-var runPage;
-
-runPage = new FullPage({
+var runPage = new FullPage({
 	id : 'pageContain',                            // id of contain
 	slideTime : 500,                               // time of slide
 	effect : {                                     // slide effect
@@ -26,4 +24,6 @@ runPage = new FullPage({
     }
 });
 
-
+function next() {
+    runPage.next();
+}
