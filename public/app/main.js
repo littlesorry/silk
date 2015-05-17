@@ -4,7 +4,7 @@ var runPage = new FullPage({
 	effect : {                                     // slide effect
         	transform : {
         		translate : 'X',				   // 'X'|'Y'|'XY'|'none'
-        		scale : [.8, 1],				   // [scalefrom, scaleto]
+        		scale : [.5, 1],				   // [scalefrom, scaleto]
         		rotate : [0, 0]				       // [rotatefrom, rotateto]
         	},
         	opacity : [0, 1]                       // [opacityfrom, opacityto]
@@ -16,7 +16,6 @@ var runPage = new FullPage({
     }
     , beforeChange : function(index, thisPage) {   // callback before pageChange
         console.log(index);
-
         // return 'stop';
     }
     , callback : function(index, thisPage) {       // callback when pageChange
@@ -26,4 +25,17 @@ var runPage = new FullPage({
 
 function next() {
     runPage.next();
+}
+
+
+function prev() {
+    runPage.prev();
+}
+
+function page(idx) {
+    runPage.go(idx || 0);
+}
+
+function goInstruction() {
+    window.location.href = "/instruction.html";
 }

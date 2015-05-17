@@ -16,6 +16,8 @@
 			<div class="contain" onclick="next();" ontouchstart="next();">
 				<img class="fixed top left" src="assets/p1/1-02.png">
 				<img class="fixed top left" src="assets/p1/1-03.png">
+				<img class="fixed bottom left anime-drag-down delay-one" src="assets/logo_1.png">
+				<img class="fixed bottom right anime-drag-down delay-two" src="assets/logo_2.png">
 			</div>
 		</div>
 		<!-- page 3-->
@@ -25,7 +27,7 @@
 				<img class="fixed top left" style="" src="assets/p3/3-03.png">
 				<img class="fixed btn1" src="assets/p3/3-04_clip.png" onclick="next();" ontouchstart="next();">
 				<img class="fixed btn2" src="assets/p3/3-05_clip.png">
-				<img class="fixed btn3" src="assets/p3/3-05_clip.png">
+				<img class="fixed btn3" src="assets/p3/3-06_clip.png" onclick="goInstruction();" ontouchstart="goInstruction();">
 			</div>
 		</div>
 		<!-- page 4-->
@@ -36,16 +38,51 @@
 				<img class="fixed btn2" src="assets/p4/4-04_clip.png" onclick="next();" ontouchstart="next();">
 				<img class="fixed btn3" src="assets/p4/4-05_clip.png" onclick="next();" ontouchstart="next();">
 				<img class="fixed btn4" src="assets/p4/4-06_clip.png" onclick="next();" ontouchstart="next();">
+				<img class="fixed bottom right anime-drag-down delay-one" src="assets/logo_2.png">
 			</div>
 		</div>
 		<!-- page 5-->
 		<div class="page page5">
 			<div class="contain">
 				<img class="fixed canvas" src="assets/p5/5-05_clip.png">
-				<img class="fixed btn1" src="assets/p5/5-02_clip.png">
+				<img class="fixed btn1" src="assets/p5/5-02_clip.png" onclick="prev();" ontouchstart="prev();">
 				<img class="fixed btn2" src="assets/p5/5-03_clip.png">
 				<img class="fixed btn3" src="assets/p5/5-04_clip.png">
-				<img class="fixed btn4" src="assets/p5/5-06_clip.png">
+				<img class="fixed btn4" src="assets/p5/5-06_clip.png" onclick="next();" ontouchstart="next();">
+			</div>
+		</div>
+		<!-- page 6 -->
+		<div class="page page6">
+			<div class="contain">
+				<img class="fixed label1" src="assets/p6/6-02_clip.png">
+				<img class="fixed btn1" src="assets/p6/6-03_clip.png" onclick="prev();" ontouchstart="prev();">
+				<img class="fixed btn2" src="assets/p6/6-04_clip.png">
+				<img class="fixed sub-btn active sub-btn1" src="assets/p6/6-btn-01.png">
+				<img class="fixed sub-btn sub-btn2" src="assets/p6/6-btn-02.png">
+				<img class="fixed sub-btn sub-btn3" src="assets/p6/6-btn-03.png">
+				<img class="fixed canvas" src="assets/p6/6-05_clip.png">
+				<img class="fixed btn3" src="assets/p6/6-06_clip.png" onclick="next();" ontouchstart="next();">
+
+				<img class="fixed bottom right anime-drag-down delay-one" src="assets/logo_2.png">
+			</div>
+		</div>
+		<!-- page 7 -->
+		<div class="page page7" data-step="1"> 
+			<div class="contain">
+				<img class="fixed label1" src="assets/p7/7-02_clip.png">
+				<img class="fixed canvas" src="assets/p7/7-03_clip.png">
+
+				<input class="fixed input full-line input1" type="text" maxlength="20">
+				<input class="fixed input full-line input2" type="text" maxlength="8">
+				<input class="fixed input full-line input3" type="text" maxlength="14">
+
+				<img class="fixed btn1" src="assets/p7/7-07_clip.png" onclick="prev();" ontouchstart="prev();">
+				<img class="fixed btn2" src="assets/p7/7-08_clip.png" onclick="next();" ontouchstart="next();">
+			</div>
+		</div>
+		<!-- page 8, instruction page --> 
+		<div class="page page-instruction" > 
+			<div class="contain" onclick="page();" ontouchstart="page();">
 			</div>
 		</div>
 	</div>
