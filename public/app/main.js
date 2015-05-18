@@ -1,7 +1,8 @@
 requirejs.config({
     baseUrl: '/',
+    waitSeconds: 60,
     paths: {
-        app: 'app/app'
+        app: 'app/app'    
     }
 });
 
