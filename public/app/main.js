@@ -1,3 +1,10 @@
+requirejs.config({
+    baseUrl: '/',
+    paths: {
+        app: 'app/app'
+    }
+});
+
 var runPage = new FullPage({
 	id : 'pageContain',                            // id of contain
 	slideTime : 500,                               // time of slide
