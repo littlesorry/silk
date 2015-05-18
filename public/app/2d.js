@@ -1,13 +1,10 @@
 function initCanvas(elem, props) {
     var drawHistory = false;
     var canvas = document.getElementById(elem);
+    canvas.width = props.width;
+    canvas.height = props.height;
     var ctx = canvas.getContext('2d');
     var color = props.strokeColor || "red";
-
-    canvas.width = props.width || Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
-    // canvas.height = props.height || Math.min(document.documentElement.clientHeight, window.innerHeight || 300);
-    canvas.height = window.innerHeight;
-
 
     ctx.strokeStyle = color;
     ctx.lineWidth = props.strokeWidth || '2';
@@ -27,7 +24,6 @@ function initCanvas(elem, props) {
     canvas.addEventListener(upEvent, endDraw, false);
 
     var channel = 'draw';
-
     /* Draw on canvas */
     function drawOnCanvas(color, plots) {
         ctx.strokeStyle = color;
@@ -53,8 +49,19 @@ function initCanvas(elem, props) {
         e.preventDefault(); // prevent continuous touch event process e.g. scrolling!
         if (!isActive) return;
 
+        console.log(e.targetTouches[0]);
         var x = isTouchSupported ? (e.targetTouches[0].pageX - canvas.offsetLeft) : (e.offsetX || e.layerX - canvas.offsetLeft);
         var y = isTouchSupported ? (e.targetTouches[0].pageY - canvas.offsetTop) : (e.offsetY || e.layerY - canvas.offsetTop);
+            
+        console.log({
+            pagex: e.targetTouches[0].pageX,
+            pagey: e.targetTouches[0].pageY,
+            offx: canvas.offsetLeft,
+            offy: canvas.offsetTop,
+            x: x,
+            y: y
+        });
+
         plots.push({
             x: (x << 0),
             y: (y << 0)
@@ -81,6 +88,7 @@ function initCanvas(elem, props) {
     };
 
     return {
+        draw: drawOnCanvas,
         canvas: canvas,
         getPaths: getPaths
     }

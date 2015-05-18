@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Silk</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<title>雅诗兰黛</title>
 	<meta name="author" content="littlesorry@github">
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-touch-fullscreen" content="yes" />	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/fullPage.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script data-main="app/main" src="lib/require-2.1.17.js"></script>
 </head>
 <body>
 	<div id="pageContain">
-		<!-- page 1-->
+		<!-- page 1, idx 0-->
 		<div class="page page1 current">
 			<div class="contain" onclick="next();" ontouchstart="next();">
-				<img class="fixed top left" src="assets/p1/1-02.png">
-				<img class="fixed top left" src="assets/p1/1-03.png">
+				<!-- <img class="bg" src="assets/bg.jpg"> -->
+				<img class="fixed top left full" src="assets/p1/1-02.png">
+				<img class="fixed top left full" src="assets/p1/1-03.png">
 				<img class="fixed bottom left bottom-in delay-1" src="assets/logo_1.png">
 				<img class="fixed bottom right bottom-in delay-2" src="assets/logo_2.png">
 			</div>
@@ -24,37 +27,44 @@
 		<!-- page 3-->
 		<div class="page page3">
 			<div class="contain">
-				<img class="fixed top left" style="margin-top:-1%" src="assets/p3/3-02.png">
-				<img class="fixed top left" style="" src="assets/p3/3-03.png">
-				<img class="fixed bottom-in btn1" src="assets/p3/3-04_clip.png" onclick="next();" ontouchstart="next();">
-				<img class="fixed left-in btn2" src="assets/p3/3-05_clip.png">
-				<img class="fixed right-in btn3" src="assets/p3/3-06_clip.png" onclick="goInstruction();" ontouchstart="goInstruction();">
+				<!-- <img class="bg" src="assets/p3/3-01.png"> -->
+				<img class="fixed top left full" style="margin-top:-1%" src="assets/p3/3-02.png">
+				<img class="fixed top left full" style="" src="assets/p3/3-03.png">
+				<img class="fixed bottom-in delay-1 btn1" src="assets/p3/3-04_clip.png" onclick="next();" ontouchstart="next();">
+				<img class="fixed left-in delay-2 btn2" src="assets/p3/3-05_clip.png">
+				<img class="fixed right-in delay-3 btn3" src="assets/p3/3-06_clip.png" onclick="goInstruction();" ontouchstart="goInstruction();">
 			</div>
 		</div>
 		<!-- page 4-->
 		<div class="page page4">
 			<div class="contain">
+				<!-- <img class="bg" src="assets/bg.jpg"> -->
 				<img class="fixed top left" src="assets/p4/4-02.png">
-				<img class="fixed right-in btn1" src="assets/p4/4-03_clip.png" onclick="next();" ontouchstart="next();">
+				<img class="fixed right-in delay-3 btn1" src="assets/p4/4-03_clip.png" onclick="next();" ontouchstart="next();">
 				<img class="fixed left-in btn2" src="assets/p4/4-04_clip.png" onclick="next();" ontouchstart="next();">
-				<img class="fixed left-in btn3" src="assets/p4/4-05_clip.png" onclick="next();" ontouchstart="next();">
-				<img class="fixed right-in btn4" src="assets/p4/4-06_clip.png" onclick="next();" ontouchstart="next();">
+				<img class="fixed left-in delay-2 btn3" src="assets/p4/4-05_clip.png" onclick="next();" ontouchstart="next();">
+				<img class="fixed right-in delay-3 btn4" src="assets/p4/4-06_clip.png" onclick="next();" ontouchstart="next();">
 				<img class="fixed bottom right bottom-in delay-2" src="assets/logo_2.png">
 			</div>
 		</div>
 		<!-- page 5-->
 		<div class="page page5">
 			<div class="contain">
+				<!-- <img class="bg" src="assets/p5/5-01.png"> -->
 				<img class="fixed bubble delay-3 canvas" src="assets/p5/5-05_clip.png">
+				<div id="canvas-container">
+					<canvas id="canvas"></canvas>
+				</div>
 				<img class="fixed left-in delay-1 btn1" src="assets/p5/5-02_clip.png" onclick="prev();" ontouchstart="prev();">
 				<img class="fixed left-in delay-0 btn2" src="assets/p5/5-03_clip.png">
 				<img class="fixed right-in delay-2 btn3" src="assets/p5/5-04_clip.png">
 				<img class="fixed bottom-in delay-3 btn4" src="assets/p5/5-06_clip.png" onclick="next();" ontouchstart="next();">
 			</div>
 		</div>
-		<!-- page 6 -->
+		<!-- page 6, idx 4 -->
 		<div class="page page6">
 			<div class="contain">
+				<!-- <img class="bg" src="assets/bg.jpg"> -->
 				<img class="fixed label delay-0 label1" src="assets/p6/6-02_clip.png">
 				<img class="fixed left-in delay-0 btn1" src="assets/p6/6-03_clip.png" onclick="prev();" ontouchstart="prev();">
 				<img class="fixed right-in delay-1 btn2" src="assets/p6/6-04_clip.png">
@@ -70,6 +80,7 @@
 		<!-- page 7 -->
 		<div class="page page7" data-step="1"> 
 			<div class="contain">
+				<!-- <img class="bg" src="assets/bg.jpg"> -->
 				<img class="fixed label delay-0 label1" src="assets/p7/7-02_clip.png">
 				<img class="fixed bubble canvas" src="assets/p7/7-03_clip.png">
 
@@ -82,7 +93,5 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="lib/fullPage.js"></script>
-	<script type="text/javascript" src="app/main.js"></script>
 </body>
 </html>

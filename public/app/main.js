@@ -2,48 +2,78 @@ requirejs.config({
     baseUrl: '/',
     waitSeconds: 60,
     paths: {
-        app: 'app/app'    
+        'jquery': 'lib/jquery-1.11.1.min',
+        'fullPage': 'lib/fullPage',
+        'app': 'app/app',
+        'd2': 'app/2d',
+        'd3': 'app/3d'
+    },
+    shim: {
+        'fullPage': {
+            exports: 'FullPage'
+        },
+        'jquery': {
+            exports: '$'
+        }
     }
 });
 
-var runPage = new FullPage({
-	id : 'pageContain',                            // id of contain
-	slideTime : 500,                               // time of slide
-	effect : {                                     // slide effect
-        	transform : {
-        		translate : 'X',				   // 'X'|'Y'|'XY'|'none'
-        		scale : [.5, 1],				   // [scalefrom, scaleto]
-        		rotate : [0, 0]				       // [rotatefrom, rotateto]
-        	},
-        	opacity : [0, 1]                       // [opacityfrom, opacityto]
-    	},                           
-	mode : '',               // mode of fullpage
-	easing : 'ease'                                // easing('ease','ease-in','ease-in-out' or use cubic-bezier like [.33, 1.81, 1, 1];
-    , onSwipeStart : function(index, thisPage) {   // callback before pageChange
-        // return 'stop';
+require(['jquery', 'fullPage', 'd2'], function($, FullPage, d2) {
+    $(function() {
+        console.log(window);
+    });
+
+    var runPage = new FullPage({
+        id : 'pageContain',                            // id of contain
+        slideTime : 500,                               // time of slide
+        effect : {                                     // slide effect
+                transform : {
+                    translate : 'X',                   // 'X'|'Y'|'XY'|'none'
+                    scale : [.5, 1],                   // [scalefrom, scaleto]
+                    rotate : [0, 0]                    // [rotatefrom, rotateto]
+                },
+                opacity : [0, 1]                       // [opacityfrom, opacityto]
+            },                           
+        mode : '',               // mode of fullpage
+        easing : 'ease'                                // easing('ease','ease-in','ease-in-out' or use cubic-bezier like [.33, 1.81, 1, 1];
+        , onSwipeStart : function(index, thisPage) {   // callback before pageChange
+            // return 'stop';
+        }
+        , beforeChange : function(index, thisPage) {   // callback before pageChange
+            // return 'stop';
+        }
+        , callback : function(index, thisPage) {       // callback when pageChange
+            if ($(thisPage).hasClass('page5')) {
+                // 2d canvas page
+                window.d2 = initCanvas("canvas", {debug: true
+                        , width: $("#canvas").width()
+                        , height: $("#canvas").height()
+                        , onDraw: function(plots) {
+                        }});
+            }
+        }
+    });
+
+    function next() {
+        runPage.next();
     }
-    , beforeChange : function(index, thisPage) {   // callback before pageChange
-        console.log(index);
-        // return 'stop';
+
+    function prev() {
+        runPage.prev();
     }
-    , callback : function(index, thisPage) {       // callback when pageChange
-        // alert(index);
+
+    function page(idx) {
+        runPage.go(idx || 0);
     }
+
+    function goInstruction() {
+        window.location.href = "/instruction.html";
+    }
+
+    window.next = next;
+    window.prev = prev;
+    window.page = page;
+    window.goInstruction = goInstruction;
 });
 
-function next() {
-    runPage.next();
-}
 
-
-function prev() {
-    runPage.prev();
-}
-
-function page(idx) {
-    runPage.go(idx || 0);
-}
-
-function goInstruction() {
-    window.location.href = "/instruction.html";
-}
