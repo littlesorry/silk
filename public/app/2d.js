@@ -26,13 +26,13 @@ function initCanvas(elem, props) {
     var channel = 'draw';
     /* Draw on canvas */
     function drawOnCanvas(color, plots) {
+        if (plots.length <= 1) {
+            return;
+        }
         ctx.strokeStyle = color;
         ctx.beginPath();
-        ctx.moveTo(plots[0].x, plots[0].y);
-
-        for (var i = 1; i < plots.length; i++) {
-            ctx.lineTo(plots[i].x, plots[i].y);
-        }
+        ctx.moveTo(plots[plots.length -2].x, plots[plots.length -2].y);
+        ctx.lineTo(plots[plots.length -1].x, plots[plots.length -1].y);
         ctx.stroke();
     }
 
@@ -46,17 +46,19 @@ function initCanvas(elem, props) {
     var history = [];
     var paths = [];
 
+    var last = null;
     function draw(e) {
         e.preventDefault(); // prevent continuous touch event process e.g. scrolling!
         if (!isActive) return;
 
         var x = isTouchSupported ? (e.targetTouches[0].pageX - canvas.offsetLeft) : (e.offsetX || e.layerX - canvas.offsetLeft);
         var y = isTouchSupported ? (e.targetTouches[0].pageY - canvas.offsetTop) : (e.offsetY || e.layerY - canvas.offsetTop);
-            
-        plots.push({
-            x: (x << 0),
-            y: (y << 0)
-        }); 
+        if (last != null && Math.abs(last.x - x) <= 1 && Math.abs(last.y - y) <= 1) {
+            return;
+        }
+
+        last = {x: (x << 0), y: (y << 0)};
+        plots.push(last); 
         // round numbers for touch screens
         drawOnCanvas(color, plots);
     }
@@ -71,7 +73,6 @@ function initCanvas(elem, props) {
         e.preventDefault();
         isActive = false;
         paths.push(plots);
-        if (props.onDraw) props.onDraw.call(null, plots);
         plots = [];
     }
 
