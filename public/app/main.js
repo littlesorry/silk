@@ -45,11 +45,14 @@ require(['jquery', 'fullPage', 'd2'], function($, FullPage, d2) {
         , callback : function(index, thisPage) {       // callback when pageChange
             if ($(thisPage).hasClass('page5')) {
                 // 2d canvas page
-                window.d2 = initCanvas("canvas", {debug: true
-                        , width: $("#canvas").width()
-                        , height: $("#canvas").height()
-                        , onDraw: function(plots) {
-                        }});
+                if (window.d2 == null) {
+                    window.d2 = initCanvas("canvas", {debug: true
+                            , width: $("#canvas").width()
+                            , height: $("#canvas").height()
+                            , onDraw: function(plots) {
+                            }});
+                    window.undo = d2.undo;
+                }
             }
         }
     });

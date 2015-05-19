@@ -43,25 +43,16 @@ function initCanvas(elem, props) {
 
     var isActive = false;
     var plots = [];
+    var history = [];
     var paths = [];
 
     function draw(e) {
         e.preventDefault(); // prevent continuous touch event process e.g. scrolling!
         if (!isActive) return;
 
-        console.log(e.targetTouches[0]);
         var x = isTouchSupported ? (e.targetTouches[0].pageX - canvas.offsetLeft) : (e.offsetX || e.layerX - canvas.offsetLeft);
         var y = isTouchSupported ? (e.targetTouches[0].pageY - canvas.offsetTop) : (e.offsetY || e.layerY - canvas.offsetTop);
             
-        console.log({
-            pagex: e.targetTouches[0].pageX,
-            pagey: e.targetTouches[0].pageY,
-            offx: canvas.offsetLeft,
-            offy: canvas.offsetTop,
-            x: x,
-            y: y
-        });
-
         plots.push({
             x: (x << 0),
             y: (y << 0)
@@ -73,6 +64,7 @@ function initCanvas(elem, props) {
     function startDraw(e) {
         e.preventDefault();
         isActive = true;
+        history.push(canvas.toDataURL());
     }
 
     function endDraw(e) {
@@ -83,12 +75,25 @@ function initCanvas(elem, props) {
         plots = [];
     }
 
+    function undo() {
+        if (paths.length) {
+            paths.pop();
+            var restoreStatus = history.pop();
+            var img = new Element('img', {'src':restoreStatus});
+            img.onload = function() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height, 0, 0, canvas.width, canvas.height);  
+            }
+        }
+    }
+
     var getPaths = window.getPaths = function() {
       return paths;
     };
 
     return {
         draw: drawOnCanvas,
+        undo: undo,
         canvas: canvas,
         getPaths: getPaths
     }
