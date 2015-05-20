@@ -80,12 +80,19 @@ function initCanvas(elem, props) {
         if (paths.length) {
             paths.pop();
             var restoreStatus = history.pop();
-            var img = new Element('img', {'src':restoreStatus});
+            var img = new Image();
             img.onload = function() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height, 0, 0, canvas.width, canvas.height);  
-            }
+            };
+            img.src = restoreStatus;
         }
+    }
+
+    function clear() {
+        paths.length = 0;
+        history.length = 0;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     var getPaths = window.getPaths = function() {
@@ -94,6 +101,7 @@ function initCanvas(elem, props) {
 
     return {
         draw: drawOnCanvas,
+        clear: clear,
         undo: undo,
         canvas: canvas,
         getPaths: getPaths

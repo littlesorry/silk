@@ -18,7 +18,7 @@ requirejs.config({
     }
 });
 
-require(['jquery', 'fullPage', 'd2'], function($, FullPage, d2) {
+require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
     $(function() {
         console.log(window);
     });
@@ -29,7 +29,7 @@ require(['jquery', 'fullPage', 'd2'], function($, FullPage, d2) {
         effect : {                                     // slide effect
                 transform : {
                     translate : 'X',                   // 'X'|'Y'|'XY'|'none'
-                    scale : [.5, 1],                   // [scalefrom, scaleto]
+                    scale : [1, 1],                   // [scalefrom, scaleto]
                     rotate : [0, 0]                    // [rotatefrom, rotateto]
                 },
                 opacity : [0, 1]                       // [opacityfrom, opacityto]
@@ -51,7 +51,8 @@ require(['jquery', 'fullPage', 'd2'], function($, FullPage, d2) {
                             , height: $("#canvas").height()
                             , onDraw: function(plots) {
                             }});
-                    window.undo = d2.undo;
+                    window.undo = window.d2.undo;
+                    window.clearCanvas = window.d2.clear;
                 }
             }
         }
