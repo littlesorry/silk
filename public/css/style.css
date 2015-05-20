@@ -140,6 +140,15 @@ img.full {
 	margin-left: -160px;
 }
 
+#d3-canvas {
+	top: 19.5%;
+	left: 50%;
+	margin-left: -160px;
+	height: 240px;
+	width: 320px;
+	position: absolute;
+}
+
 .page6 .btn1 {
 	top: 16.5%;
 	left: 6.5%;

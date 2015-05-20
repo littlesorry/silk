@@ -7,15 +7,21 @@ var d3 = (function() {
 
 	return {
 		meshes: [],
-		silkWidth: 18,
+		silkWidth: 24,
 		offsetAnchorX: 3,
-		material: new THREE.MeshPhongMaterial({color: 0xf1a0c3, shading: THREE.FlatShading, side: THREE.DoubleSide}),
+		material: new THREE.MeshPhongMaterial({color: 0xad006f, shading: THREE.FlatShading, side: THREE.DoubleSide}),
 		init: function(elem, props) {
 			this.elem = elem = elem || "canvas";
 			this.props = props = props || {};
 			this.meshes.length = 0;
 			var scene = this.scene = new THREE.Scene();
-			var renderer = this.renderer = new THREE.WebGLRenderer();
+			var renderer = null;
+			// if (/CanvasRenderer/.test(window.location.hash)) {
+			renderer = this.renderer = new THREE.CanvasRenderer();
+			// } else {
+				// renderer = this.renderer = new THREE.WebGLRenderer();
+			// }
+
 			var width = props.width || window.innerWidth;
 			var height = props.height || window.innerHeight
 			this.offsetX = props.d2Width/2;
@@ -37,8 +43,8 @@ var d3 = (function() {
 			this.shaderMaterial = new THREE.ShaderMaterial( {
 				uniforms:       uniforms,
 				attributes:     attributes,
-				vertexShader:   document.getElementById( 'vertexshader' ).textContent,
-				fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
+				// vertexShader:   document.getElementById( 'vertexshader' ).textContent,
+				// fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
 				blending:       THREE.AdditiveBlending,
 				depthTest:      false,
 				transparent:    true
@@ -79,7 +85,7 @@ var d3 = (function() {
               light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xf1a0c3 } ) ) );
               light1.position.x = 120 * i;
               light1.position.y = 100 * j;
-              light1.position.z = 24;
+              light1.position.z = 27;
               scene.add( light1 );
             }
           }
@@ -91,9 +97,14 @@ var d3 = (function() {
 			};
 
 			function render() {
-				camera.lookAt( scene.position );
-
-				renderer.render( scene, camera );
+				try {
+					camera.lookAt( scene.position );
+					renderer.render( scene, camera );
+					
+				} catch(e) {
+					alert("render error: ");
+					alert(e);
+				}
 			}
 		},
 
@@ -139,7 +150,7 @@ var d3 = (function() {
             };
 
 			if (points && points.length > 1) {
-                points = averagePoints(averagePoints(points));
+                points = averagePoints((points));
 				for (var i = 0; i < points.length - 1; i++) {
 					this.addMesh(translate(points[i], this.offsetX, this.offsetY)
 								, translate(points[i + 1], this.offsetX, this.offsetY));		

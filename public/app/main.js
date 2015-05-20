@@ -4,6 +4,10 @@ requirejs.config({
     paths: {
         'jquery': 'lib/jquery-1.11.1.min',
         'fullPage': 'lib/fullPage',
+        'three': 'lib/three',
+        'project': 'lib/three-project',
+        'renderer': 'lib/three-renderer',
+        'camera': 'lib/three-camera',
         'app': 'app/app',
         'd2': 'app/2d',
         'd3': 'app/3d'
@@ -14,15 +18,34 @@ requirejs.config({
         },
         'jquery': {
             exports: '$'
+        },
+        'three': {
+            exports: 'THREE'
+        },
+        'project': {
+            deps: ['three']
+        },
+        'renderer': {
+            deps: ['three']
+        },
+        'camera': {
+            deps: ['three']
+        },
+        'd3': {
+            deps: ['three', 'project', 'renderer', 'camera'],
+            exports: 'd3'
         }
     }
 });
 
-require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
-    $(function() {
-        console.log(window);
-    });
+/**
+    <script src="lib/three.js"></script>
+    <script src="lib/three-project.js"></script>
+    <script src="lib/three-renderer.js"></script>
+    <script src="lib/three-camera.js"></script>
+*/
 
+require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
     var runPage = new FullPage({
         id : 'pageContain',                            // id of contain
         slideTime : 500,                               // time of slide
@@ -54,7 +77,21 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
                     window.undo = window.d2.undo;
                     window.clearCanvas = window.d2.clear;
                 }
-            }
+            } else if ($(thisPage).hasClass('page6')) {
+                if (!window.d3Ready) {
+                    d3.init("d3-canvas", {
+                        container: "#d3-container"
+                        , width: 320
+                        , height: 240
+                        , d2Width: window.d2.canvas.getAttribute("width")
+                        , d2Height: window.d2.canvas.getAttribute("height")});
+
+                    for (var i = window.d2.getPaths().length - 1; i >= 0; i--) {
+                        d3.addMeshes(window.d2.getPaths()[i]);
+                    }
+                    window.d3Ready = true;
+                }
+            }            
         }
     });
 
