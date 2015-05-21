@@ -10,16 +10,19 @@
 }
 
 img {
-	/*width: 50%;*/
 }
 
 img.full {
-	/*max-width: 100%;*/
+	width: 320px;
 }
 
 .center-x {
 	left: 50%;
 	margin-left: -160px;
+}
+
+.brand-logo {
+	width: 52px;
 }
 
 .page {
@@ -37,6 +40,11 @@ img.full {
 
 .page1 .i1, .page1 .i2{
 	top: 5%;
+	width: 320px;
+}
+
+.page1 .logo1 {
+	width: 123px;
 }
 
 .page2 {
@@ -46,22 +54,32 @@ img.full {
 }
 
 .page3 {
-	background-image: url(../assets/p3/3-01.png);
+	background-image: url(../assets/p3/3-01.jpg);
+}
+
+.page3 .i1, .page3 .i2 {
+	width: 320px;
 }
 
 .page3 .btn1 {
 	bottom: 18%;
-	left: 18%;
+	left: 50%;
+	margin-left: -107px;
+	width: 213px;
 }
 
 .page3 .btn2 {
 	bottom: 10%;
-	left: 18%;
+	left: 50%;
+	margin-left: -112px;
+	width: 104px;
 }
 
 .page3 .btn3 {
 	bottom: 10%;
-	right: 15%;
+	left: 50%;
+	margin-left: 8px;
+	width: 104px;
 }
 
 .page4 {
@@ -70,26 +88,34 @@ img.full {
 
 .page4 .btn1 {
 	top: 20%;
-	left: 5%;
+	left: 50%;
+	margin-left: -145px;
+	width: 139px;
 }
 
 .page4 .btn2 {
 	top: 20%;
-	right: 5%;
+	left: 50%;
+	margin-left: 6px;
+	width: 139px;
 }
 
 .page4 .btn3 {
 	bottom: 13%;
-	left: 5%;
+	left: 50%;
+	margin-left: -145px;
+	width: 149px;
 }
 
 .page4 .btn4 {
 	bottom: 13%;
-	right: 5%;
+	left: 50%;
+	margin-left: 6px;
+	width: 149px;
 }
 
 .page5 {
-	background-image: url(../assets/p5/5-01.png);
+	background-image: url(../assets/p5/5-01.jpg);
 }
 
 .page5 .canvas {

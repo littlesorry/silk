@@ -17,7 +17,10 @@ var d3 = (function() {
 			var scene = this.scene = new THREE.Scene();
 			var renderer = null;
 			// if (/CanvasRenderer/.test(window.location.hash)) {
-			renderer = this.renderer = new THREE.CanvasRenderer();
+			renderer = this.renderer = new THREE.CanvasRenderer({ 
+				alpha: true
+				, preserveDrawingBuffer: true 
+			});
 			// } else {
 				// renderer = this.renderer = new THREE.WebGLRenderer();
 			// }
@@ -52,7 +55,7 @@ var d3 = (function() {
 
 			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( props.width || window.innerWidth, props.height || window.innerHeight );
-			renderer.setClearColor(0xeeeeee);
+			renderer.setClearColor(0x000000, 0);
 			renderer.domElement.id = elem;
 			$(props.container || "body").append($(renderer.domElement));
 
@@ -156,6 +159,10 @@ var d3 = (function() {
 								, translate(points[i + 1], this.offsetX, this.offsetY));		
 				}
 			}
+		},
+
+		toData: function() {
+			return this.renderer.domElement.toDataURL();
 		}
 	};
 })();

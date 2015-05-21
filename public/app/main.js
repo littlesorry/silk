@@ -52,7 +52,7 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
         effect : {                                     // slide effect
                 transform : {
                     translate : 'X',                   // 'X'|'Y'|'XY'|'none'
-                    scale : [1, 1],                   // [scalefrom, scaleto]
+                    // scale : [1, 1],                   // [scalefrom, scaleto]
                     rotate : [0, 0]                    // [rotatefrom, rotateto]
                 },
                 opacity : [0, 1]                       // [opacityfrom, opacityto]
