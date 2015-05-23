@@ -130,6 +130,7 @@ var d3 = (function() {
 			var geometry = new THREE.BufferGeometry(); 
 			geometry.addAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) ); 
 			var mesh = new THREE.Mesh( geometry, this.material );
+			mesh._app = true;
 			this.scene.add( mesh );
 			this.meshes.push(mesh);
 		}, 
@@ -159,6 +160,16 @@ var d3 = (function() {
 								, translate(points[i + 1], this.offsetX, this.offsetY));		
 				}
 			}
+		},
+
+		clear: function() {
+    		var obj, i;
+            for ( i = this.scene.children.length - 1; i >= 0 ; i -- ) {
+                obj = this.scene.children[ i ];
+                if ( obj._app) {
+                    this.scene.remove(obj);
+                }
+            }
 		},
 
 		toData: function() {
