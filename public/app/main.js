@@ -38,13 +38,6 @@ requirejs.config({
     }
 });
 
-/**
-    <script src="lib/three.js"></script>
-    <script src="lib/three-project.js"></script>
-    <script src="lib/three-renderer.js"></script>
-    <script src="lib/three-camera.js"></script>
-*/
-
 require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
     var runPage = new FullPage({
         id : 'pageContain',                            // id of contain
@@ -52,7 +45,7 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
         effect : {                                     // slide effect
                 transform : {
                     translate : 'X',                   // 'X'|'Y'|'XY'|'none'
-                    // scale : [1, 1],                   // [scalefrom, scaleto]
+                    scale : [1, 1],                   // [scalefrom, scaleto]
                     rotate : [0, 0]                    // [rotatefrom, rotateto]
                 },
                 opacity : [0, 1]                       // [opacityfrom, opacityto]
@@ -79,17 +72,16 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
                 }
             } else if ($(thisPage).hasClass('page6')) {
                 if (!window.d3Ready) {
+                    window.d3Ready = true;
                     d3.init("d3-canvas", {
                         container: "#d3-container"
                         , width: 320
-                        , height: 240
+                        , height: 300
                         , d2Width: window.d2.canvas.getAttribute("width")
                         , d2Height: window.d2.canvas.getAttribute("height")});
-
-                    for (var i = window.d2.getPaths().length - 1; i >= 0; i--) {
-                        d3.addMeshes(window.d2.getPaths()[i]);
-                    }
-                    window.d3Ready = true;
+                }
+                for (var i = window.d2.getPaths().length - 1; i >= 0; i--) {
+                    d3.addMeshes(window.d2.getPaths()[i]);
                 }
             }            
         }
