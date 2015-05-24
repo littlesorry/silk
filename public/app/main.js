@@ -134,6 +134,17 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
         window.prev = prev;
         window.page = page;
         window.goInstruction = goInstruction;
+
+        window.pickItem = function(idx) {
+            $(".msg li").removeClass("primary secondary");
+            $(".msg li:nth-child(" + idx + ")").addClass("primary");
+            if (idx > 1) {
+                $(".msg li:nth-child(" + (idx - 1) + ")").addClass("secondary");
+            }
+            if (idx < $(".msg li").size()) {
+                $(".msg li:nth-child(" + (idx + 1) + ")").addClass("secondary");
+            }
+        }
     });
 
 });
