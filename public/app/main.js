@@ -145,6 +145,14 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
                 $(".msg li:nth-child(" + (idx + 1) + ")").addClass("secondary");
             }
         }
+
+        $("body").on("change", "input", function() {
+            if ($(this).val()) {
+                $(this).addClass("changed");
+            } else {
+                $(this).removeClass("changed");
+            }
+        })
     });
 
 });
