@@ -19,10 +19,12 @@ function initCanvas(elem, props) {
     var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
     var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));
 
-    canvas.addEventListener(downEvent, startDraw, false);
-    canvas.addEventListener(moveEvent, draw, false);
-    canvas.addEventListener(upEvent, endDraw, false);
-
+    if (!props.readonly) {
+        canvas.addEventListener(downEvent, startDraw, false);
+        canvas.addEventListener(moveEvent, draw, false);
+        canvas.addEventListener(upEvent, endDraw, false);
+    }
+    
     var channel = 'draw';
     /* Draw on canvas */
     function drawOnCanvas(color, plots) {
@@ -104,6 +106,7 @@ function initCanvas(elem, props) {
         clear: clear,
         undo: undo,
         canvas: canvas,
+        ctx: ctx,
         getPaths: getPaths
     }
 };

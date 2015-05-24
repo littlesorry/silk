@@ -63,6 +63,8 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
             }
             , beforeChange : function(index, thisPage) {   // callback before pageChange
                 // return 'stop';
+                if ($(thisPage).hasClass("page6")) {
+                }
             }
             , callback : function(index, thisPage) {       // callback when pageChange
                 window.location.hash = $(thisPage).attr("class").match(/page\d+/);
@@ -91,7 +93,24 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
                     for (var i = window.d2.getPaths().length - 1; i >= 0; i--) {
                         d3.addMeshes(window.d2.getPaths()[i]);
                     }
-                }            
+                } else if ($(thisPage).hasClass('page7')) {
+                    if (!window.preview) {
+                        window.preview = initCanvas("pre-canvas", {debug: true
+                                    , width: $("#pre-canvas").width()
+                                    , height: $("#pre-canvas").height()
+                                    , onDraw: function(plots) {
+                                    }});
+                    }
+                    var canvas = window.preview.canvas;
+                    var img = new Image();
+                    img.onload = function() {
+                        window.preview.ctx.drawImage(img, 0, 0, $("#d3-canvas").attr("width"), $("#d3-canvas").attr("height"), 
+                                                    0, 0, canvas.width, canvas.height);  
+                    };
+                    console.log(d3.toData());
+                    img.src = d3.toData();
+
+                }          
             }
         });
 

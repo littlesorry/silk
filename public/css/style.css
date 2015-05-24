@@ -210,31 +210,42 @@ img.full {
 	width: 271px;
 }
 
+.page7 .t-shirt {position: absolute; top: 15%; left: 50%; width: 240px; margin-left: -120px;}
+
 .page7 .canvas {
-	top: 9%;
+	top: 8%;
 	left: 50%;
-	margin-left: -130px;
-	width: 270px
+	margin-left: -150px;
+	width: 300px
+}
+
+.page7 #pre-canvas {
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	margin-left: -120px;
+	width: 240px;
+	height: 240px;
 }
 
 .page7 .input1 {
-	bottom: 24.5%;
+	bottom: 21%;
 	height: 48px;
 	background-image: url(../assets/p7/7_txt_01.png);
     background-position: 4% 50%;
 }
 
 .page7 .input2 {
-	bottom: 17%;
-	height: 32px;
+	bottom: 15%;
+	height: 24px;
 	background-image: url(../assets/p7/7_txt_02.png);
     background-position: 4% 50%;
 
 }
 
 .page7 .input3 {
-	bottom: 9.5%;
-	height: 32px;
+	bottom: 9%;
+	height: 24px;
     background-image: url(../assets/p7/7_txt_03.png);
     background-position: 4% 50%;
 }
@@ -270,7 +281,7 @@ img.full {
 	background-repeat: no-repeat;
 	background-size: auto 20px;
 	border: 1px solid #fff;
-	border-radius: 4px;
+	border-radius: 3px;
 	padding-left: 12px;
 	box-sizing: border-box;
 }

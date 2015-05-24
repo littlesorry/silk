@@ -93,22 +93,16 @@ var d3 = (function() {
             }
           }
 
-			animate();
-			function animate() {
-			  	requestAnimationFrame(animate);
-			  	render();
-			};
-
-			function render() {
+          	this.render = function() {
 				try {
 					camera.lookAt( scene.position );
 					renderer.render( scene, camera );
-					
 				} catch(e) {
-					alert("render error: ");
-					alert(e);
+					console.log("render error: ");
+					console.log(e);
 				}
 			}
+          	this.render();
 		},
 
 		addMesh: function(start, end) {
@@ -160,6 +154,8 @@ var d3 = (function() {
 								, translate(points[i + 1], this.offsetX, this.offsetY));		
 				}
 			}
+
+			this.render();
 		},
 
 		clear: function() {
@@ -170,6 +166,7 @@ var d3 = (function() {
                     this.scene.remove(obj);
                 }
             }
+            this.render();
 		},
 
 		toData: function() {
