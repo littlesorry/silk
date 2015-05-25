@@ -241,7 +241,6 @@ img.full {
 	height: 24px;
 	background-image: url(../assets/p7/7_txt_02.png);
     background-position: 4% 50%;
-
 }
 
 .page7 .input3 {
@@ -277,6 +276,17 @@ img.full {
 	background-color: rgba(0, 0, 0, 0.7);
 }
 
+.page7 .input4 {
+	border: none;
+	height: 24px;
+	width: 244px;
+	top: 8%;
+	left: 50%;
+	margin-left: -122px;
+	background: url(../assets/p8/8-02_clip.png) no-repeat;
+    background-position: 1% 50%;
+    background-size: 100%;
+}
 .page7 .step-label {
 	width: 244px;
 	top: 8%;
@@ -301,7 +311,7 @@ img.full {
 	top: 15%;
 	left: 50%;
 	width: 260px;
-	margin-left: -120px;
+	margin-left: -130px;
 	font-size: 19px
 }
 .page7 .step1-overlay li {
@@ -310,8 +320,8 @@ img.full {
 	-webkit-transition: all 0.2s ease;
 	-webkit-transform-origin: 0 50%;
 	transition: all 0.2s ease;
-	transform-origin: 0 50%;
-	text-shadow: 0 0 10px pink;
+	transform-origin: 20% 50%;
+	text-align: center;
 }
 .page7 .step1-overlay li.primary {
 	opacity: 1;
@@ -408,7 +418,7 @@ img.full {
 	animation: dragRight 0.5s ease 0.7s both;
 }
 
-.input:active, .input:focus {
+.input:active, .input:focus, .input.changed {
 	outline: none;
 	background-image: none !important;
 }

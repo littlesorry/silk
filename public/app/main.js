@@ -165,6 +165,14 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
         if (window.location.hash) {
             runPage.go(window.location.hash.replace("#", ""));
         }
+
+        $("body").on("change", "input", function() {
+            if ($(this).val()) {
+                $(this).addClass("changed");
+            } else {
+                $(this).removeClass("changed");
+            }
+        })
     });
 
 });
