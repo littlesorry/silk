@@ -144,7 +144,7 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
             setTimeout(function() {
                 $(".step1-overlay").hide();
                 if (toUpdate) {
-                    $(".page7 .input1").val(picked || "");
+                    $(".page7 .input1").val(picked || "").addClass("changed");
                 }
             }, 300);
         };

@@ -322,6 +322,7 @@ img.full {
 	transition: all 0.2s ease;
 	transform-origin: 20% 50%;
 	text-align: center;
+	text-shadow: 0 0 10px pink;
 }
 .page7 .step1-overlay li.primary {
 	opacity: 1;
@@ -366,6 +367,8 @@ img.full {
 	margin-left: -160px;
 	z-index: 0;
 }
+
+.page8 .t-shirt {position: absolute; top: 25%; left: 50%; width: 228px; margin-left: -114px;}
 
 .page8 .btn1, .page8 .btn2, .page8 .btn3 {
 	width: 84px;
