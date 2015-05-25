@@ -311,6 +311,7 @@ img.full {
 	-webkit-transform-origin: 0 50%;
 	transition: all 0.2s ease;
 	transform-origin: 0 50%;
+	text-shadow: 0 0 10px pink;
 }
 .page7 .step1-overlay li.primary {
 	opacity: 1;
