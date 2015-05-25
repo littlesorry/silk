@@ -15,7 +15,7 @@
 <body>
 	<div id="pageContain">
 		<!-- page 1, idx 0-->
-		<div class="page page1 current">
+		<div class="page page1 current" data-idx="0">
 			<div class="contain" onclick="next();" ontouchstart="next();">
 				<img class="bg fadeIn" src="assets/bg.jpg">
 				<img class="fixed i1 center-x " src="assets/p1/1-02.png">
@@ -25,7 +25,7 @@
 			</div>
 		</div>
 		<!-- page 3-->
-		<div class="page page3">
+		<div class="page page3" data-idx="1">
 			<div class="contain">				
 				<img class="bg fadeIn" src="assets/p3/3-01.jpg">
 				<img class="fixed center-x label i1" style="margin-top:-1%" src="assets/p3/3-02.png">
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<!-- page 4-->
-		<div class="page page4">
+		<div class="page page4" data-idx="2">
 			<div class="contain">
 				<img class="bg fadeIn" src="assets/bg.jpg">
 				<img class="fixed top left full right-in" src="assets/p4/4-02.png">
@@ -48,7 +48,7 @@
 			</div>
 		</div>
 		<!-- page 5-->
-		<div class="page page5">
+		<div class="page page5" data-idx="3">
 			<div class="contain">
 				<img class="bg fadeIn" src="assets/p5/5-01.jpg">
 				<img class="fixed bubble delay-3 center-x canvas" src="assets/p5/5-05_clip.png">
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 		<!-- page 6, idx 4 -->
-		<div class="page page6">
+		<div class="page page6" data-idx="4">
 			<div class="contain">
 				<img class="bg fadeIn" src="assets/bg.jpg">
 				<img class="fixed label delay-0 label1" src="assets/p6/6-02_clip.png">
@@ -79,29 +79,29 @@
 			</div>
 		</div>
 		<!-- page 7 -->
-		<div class="page page7" data-step="1"> 
+		<div class="page page7" data-idx="5"> 
 			<div class="contain">
 				<img class="bg fadeIn" src="assets/bg.jpg">
 				<img class="fixed label delay-0 label1" src="assets/p7/7-02_clip.png">
 				<img class="fixed bubble canvas" src="assets/p7/7-03_clip.png">
-				<img class="fixed bubble t-shirt t-shirt-1" src="assets/p4/4-03_clip.png">
-				<img class="fixed bubble t-shirt t-shirt-2" src="assets/p4/4-04_clip.png">
-				<img class="fixed bubble t-shirt t-shirt-3" src="assets/p4/4-05_clip.png">
-				<img class="fixed bubble t-shirt t-shirt-4" src="assets/p4/4-06_clip.png">
+				<img class="fixed bubble t-shirt t-shirt-1" src="assets/t-1.png">
+				<img class="fixed bubble t-shirt t-shirt-2" src="assets/t-2.png">
+				<img class="fixed bubble t-shirt t-shirt-3" src="assets/t-3.png">
+				<img class="fixed bubble t-shirt t-shirt-4" src="assets/t-4.png">
 				<div id="preview-container">
 					<canvas id="pre-canvas"></canvas>
 				</div>
 
-				<input class="fixed input full-line left-in delay-1 input1" type="text" maxlength="20">
+				<input class="fixed input full-line left-in delay-1 input1" type="text" maxlength="20" onclick="showPick();" ontouchstart="showPick();">
 				<input class="fixed input full-line right-in delay-2 input2" type="text" maxlength="8">
 				<input class="fixed input full-line left-in delay-3 input3" type="text" maxlength="14">
 
 				<img class="fixed left-in delay-3 btn1" src="assets/p7/7-07_clip.png" onclick="prev();" ontouchstart="prev();">
-				<img class="fixed right-in delay-4 btn2" src="assets/p7/7-08_clip.png" onclick="next();" ontouchstart="next();">
+				<img class="fixed right-in delay-4 btn2" src="assets/p7/7-08_clip.png" onclick="page(6);" ontouchstart="page(6);">
 				<!-- step 1 -->
 				<div class="step1-overlay fadeIn">
 					<img class="fixed label delay-0 step-label" src="assets/p8/8-02_clip.png">
-					<ul class="fixed msg">
+					<ul class="fixed msg bubble">
 						<li onclick="pickItem(1);" ontouchstart="pickItem(1);">放我的心意在你胸口</li>
 						<li onclick="pickItem(2);" ontouchstart="pickItem(2);">This is ONLY for YOU</li>
 						<li onclick="pickItem(3);" ontouchstart="pickItem(3);">你的温柔 在我的胸口</li>
@@ -110,15 +110,26 @@
 						<li onclick="pickItem(6);" ontouchstart="pickItem(6);" >做敢于穿粉红的真男人</li>
 						<li onclick="pickItem(7);" ontouchstart="pickItem(7);">Love Pink Love Life</li>
 					</ul>
-					<img class="fixed left-in delay-1 step-btn1" src="assets/p8/8-04_clip.png" onclick="prev();" ontouchstart="prev();">
-					<img class="fixed right-in delay-2 step-btn2" src="assets/p8/8-05_clip.png" onclick="prev();" ontouchstart="prev();">
+					<img class="fixed left-in delay-1 step-btn1" src="assets/p8/8-04_clip.png" onclick="hidePick(true);" ontouchstart="hidePick(true);">
+					<img class="fixed right-in delay-2 step-btn2" src="assets/p8/8-05_clip.png" onclick="hidePick();" ontouchstart="hidePick();">
 				</div>
 			</div>
 		</div>
 
-		<div class="page page8">
+		<div class="page page8" data-idx="6">
 			<div class="contain">
-				
+				<img class="bg fadeIn" src="assets/bg.jpg">
+				<div class="overlay" style="display:block;">
+					<img class="fixed label delay-0 label0" src="assets/p9/9-02_clip.png">	
+					<img class="fixed delay-0 icon1" src="assets/p9/9-03_clip.png">	
+					<img class="fixed delay-1 label1 fadeIn" src="assets/p9/9-04_clip.png">
+					<img class="fixed delay-1 label2 bottom-in " src="assets/p9/9-09_clip.png">							
+					<img class="fixed bubble canvas" src="assets/p9/9-05_clip.png">
+
+					<img class="fixed left-in delay-2 btn1" src="assets/p9/9-06_clip.png">
+					<img class="fixed right-in delay-2 btn2" src="assets/p9/9-07_clip.png">
+					<img class="fixed right-in delay-3 btn3" src="assets/p9/9-08_clip.png">
+				</div>
 			</div>
 		</div>
 	</div>

@@ -40,10 +40,6 @@ requirejs.config({
 
 require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
     $(function() {
-        if (window.location.hash) {
-            $(".page").removeClass("current");
-            $("." + window.location.hash.replace("#", "")).addClass("current");
-        }
 
         var runPage = new FullPage({
             id : 'pageContain',                            // id of contain
@@ -67,7 +63,9 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
                 }
             }
             , callback : function(index, thisPage) {       // callback when pageChange
-                window.location.hash = $(thisPage).attr("class").match(/page\d+/);
+                // window.location.hash = $(thisPage).attr("class").match(/page\d+/);
+                window.location.hash = $(thisPage).data("idx");
+
                 if ($(thisPage).hasClass('page5')) {
                     // 2d canvas page
                     if (window.d2 == null) {
@@ -114,15 +112,19 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
             }
         });
 
+
         function next() {
+            console.log("next");
             runPage.next();
         }
 
         function prev() {
+            console.log("prev");
             runPage.prev();
         }
 
         function page(idx) {
+            console.log("page");
             runPage.go(idx || 0);
         }
 
@@ -135,6 +137,19 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
         window.page = page;
         window.goInstruction = goInstruction;
 
+        window.showPick = function() {
+            $(".step1-overlay").show();
+        };
+        window.hidePick = function(toUpdate) {
+            setTimeout(function() {
+                $(".step1-overlay").hide();
+                if (toUpdate) {
+                    $(".page7 .input1").val(picked || "");
+                }
+            }, 300);
+        };
+
+        var picked;
         window.pickItem = function(idx) {
             $(".msg li").removeClass("primary secondary");
             $(".msg li:nth-child(" + idx + ")").addClass("primary");
@@ -144,6 +159,11 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
             if (idx < $(".msg li").size()) {
                 $(".msg li:nth-child(" + (idx + 1) + ")").addClass("secondary");
             }
+            picked = $(".msg li:nth-child(" + (idx) + ")").text();
+        };
+
+        if (window.location.hash) {
+            runPage.go(window.location.hash.replace("#", ""));
         }
     });
 
