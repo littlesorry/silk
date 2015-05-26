@@ -435,6 +435,43 @@ img.full {
 	margin-left: 45px;
 }
 
+.page9 .label {
+	width: 200px;
+	left: 50%;
+	top: 2%;
+	margin-left: -100px;
+}
+
+.page9 .tab {
+	width: 285px;
+	left: 50%;
+	top: 15%;
+	margin-left: -142px;
+}
+
+.page9 .list {
+	width: 285px;
+	max-height: 65%;
+	left: 50%;
+	top: 15%;
+	margin-left: -142px;
+	margin-top: 23px;
+}
+
+.page9 .btn1 {
+	width: 104px;
+	left: 50%;
+	bottom: 3%;
+	margin-left: -118px;
+}
+
+.page9 .btn2 {
+	width: 104px;
+	left: 50%;
+	bottom: 3%;
+	margin-left: 0px;
+}
+
 
 .page-instruction {
 	background: url(../assets/instruction.jpg) top;
