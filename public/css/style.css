@@ -25,7 +25,9 @@ img.full {
 }
 
 .brand-logo {
-	width: 52px;
+	width: 43px;
+	bottom: 1.5%;
+	right: 2%;
 }
 
 .page .contain {
@@ -42,7 +44,9 @@ img.full {
 }
 
 .page1 .logo1 {
-	width: 123px;
+	width: 126px;
+	left: 1%;
+	bottom: 1%;
 }
 
 .page2 {
@@ -51,26 +55,40 @@ img.full {
 	*/
 }
 
-.page3 .i1, .page3 .i2 {
+.page3 .i1 {
 	width: 320px;
 }
 
+.page3 .i2 {
+	width: 179px;
+	left: 50%;
+	margin-left: -89px;
+	top: 21%;
+}
+
+.page3 .i3 {
+	width: 216px;
+	left: 50%;
+	margin-left: -108px;
+	bottom: 27%;
+}
+
 .page3 .btn1 {
-	bottom: 18%;
+	bottom: 16%;
 	left: 50%;
 	margin-left: -107px;
 	width: 213px;
 }
 
 .page3 .btn2 {
-	bottom: 10%;
+	bottom: 8%;
 	left: 50%;
 	margin-left: -112px;
 	width: 104px;
 }
 
 .page3 .btn3 {
-	bottom: 10%;
+	bottom: 8%;
 	left: 50%;
 	margin-left: 8px;
 	width: 104px;
@@ -102,6 +120,13 @@ img.full {
 	left: 50%;
 	margin-left: 6px;
 	width: 149px;
+}
+
+.page5 .label {
+	width: 289px;
+	left: 50%;
+	margin-left: -144px;
+	top: 3%;
 }
 
 .page5 .canvas {
