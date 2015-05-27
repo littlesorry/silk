@@ -169,6 +169,10 @@ var d3 = (function() {
             this.render();
 		},
 
+		setSilkWidth: function(width) {
+			this.silkWidth = width;
+		},
+
 		toData: function() {
 			return this.renderer.domElement.toDataURL();
 		}

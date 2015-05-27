@@ -10,7 +10,17 @@ requirejs.config({
         'camera': 'lib/three-camera',
         'app': 'app/app',
         'd2': 'app/2d',
-        'd3': 'app/3d'
+        'd3': 'app/3d',
+        'page': 'app/page',
+        'page0': 'app/page/page0',
+        'page1': 'app/page/page1',
+        'page2': 'app/page/page2',
+        'page3': 'app/page/page3',
+        'page4': 'app/page/page4',
+        'page5': 'app/page/page5',
+        'page6': 'app/page/page6',
+        'page7': 'app/page/page7',
+        'page8': 'app/page/page8'
     },
     shim: {
         'fullPage': {
@@ -38,9 +48,9 @@ requirejs.config({
     }
 });
 
-require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
+require(['jquery', 'fullPage', 'd2', 'd3', 'page'], function($, FullPage, d2, d3, pages) {
     $(function() {
-
+        pages.init();
         var runPage = new FullPage({
             id : 'pageContain',                            // id of contain
             slideTime : 500,                               // time of slide
@@ -65,32 +75,9 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
             , callback : function(index, thisPage) {       // callback when pageChange
                 // window.location.hash = $(thisPage).attr("class").match(/page\d+/);
                 window.location.hash = $(thisPage).data("idx");
-
                 if ($(thisPage).hasClass('page5')) {
-                    // 2d canvas page
-                    if (window.d2 == null) {
-                        window.d2 = initCanvas("canvas", {debug: true
-                                , width: $("#canvas").width()
-                                , height: $("#canvas").height()
-                                , onDraw: function(plots) {
-                                }});
-                        window.undo = window.d2.undo;
-                        window.clearCanvas = window.d2.clear;
-                    }
                 } else if ($(thisPage).hasClass('page6')) {
-                    if (!window.d3Ready) {
-                        window.d3Ready = true;
-                        d3.init("d3-canvas", {
-                            container: "#d3-container"
-                            , width: 320
-                            , height: 300
-                            , d2Width: window.d2.canvas.getAttribute("width")
-                            , d2Height: window.d2.canvas.getAttribute("height")});
-                    }
-                    d3.clear();
-                    for (var i = window.d2.getPaths().length - 1; i >= 0; i--) {
-                        d3.addMeshes(window.d2.getPaths()[i]);
-                    }
+                    p6.render();
                 } else if ($(thisPage).hasClass('page7')) {
                     if (!window.preview) {
                         window.preview = initCanvas("pre-canvas", {debug: true
@@ -105,13 +92,12 @@ require(['jquery', 'fullPage', 'd2', 'd3'], function($, FullPage, d2, d3) {
                         window.preview.ctx.drawImage(img, 0, 0, $("#d3-canvas").attr("width"), $("#d3-canvas").attr("height"), 
                                                     0, 0, canvas.width, canvas.height);  
                     };
-                    console.log(d3.toData());
                     img.src = d3.toData();
-
                 }          
             }
         });
 
+        window.runPage = runPage;
 
         function next() {
             console.log("next");

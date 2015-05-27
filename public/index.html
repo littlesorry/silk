@@ -18,10 +18,10 @@
 		<div class="page page1 current" data-idx="0">
 			<div class="contain" onclick="next();" ontouchstart="next();">
 				<img class="bg fadeIn" src="assets/bg.jpg">
-				<img class="fixed i1 center-x " src="assets/p1/1-02.png">
-				<img class="fixed i2 center-x " src="assets/p1/1-03.png">
-				<img class="fixed bottom-in delay-1 logo1" src="assets/logo_1.png">
-				<img class="fixed bottom-in delay-2 brand-logo" src="assets/logo_2.png">
+				<img class="fixed bubble i1 center-x " src="assets/p1/1-02.png">
+				<img class="fixed left-in delay-1 i2 center-x " src="assets/p1/1-03.png">
+				<img class="fixed bottom-in delay-2 logo1" src="assets/logo_1.png">
+				<img class="fixed bottom-in delay-3 brand-logo" src="assets/logo_2.png">
 			</div>
 		</div>
 		<!-- page 3-->
@@ -60,8 +60,8 @@
 					<canvas id="canvas" class="delay-4"></canvas>
 				</div>
 				<img class="fixed left-in delay-1 btn1" src="assets/p5/5-02_clip.png" onclick="prev();" ontouchstart="prev();">
-				<img class="fixed left-in delay-0 btn2" src="assets/p5/5-03_clip.png" onclick="clearCanvas();" ontouchstart="clearCanvas();">
-				<img class="fixed right-in delay-2 btn3" src="assets/p5/5-04_clip.png" onclick="undo();" ontouchstart="undo();">
+				<img class="fixed left-in delay-0 btn2" src="assets/p5/5-03_clip.png" onclick="p5.clear();" ontouchstart="clearCanvas();">
+				<img class="fixed right-in delay-2 btn3" src="assets/p5/5-04_clip.png" onclick="p5.undo();" ontouchstart="undo();">
 				<img class="fixed bottom-in delay-3 btn4" src="assets/p5/5-06_clip.png" onclick="next();" ontouchstart="next();">
 			</div>
 		</div>
@@ -73,9 +73,9 @@
 				<img class="fixed bubble delay-4 center-x canvas" src="assets/p6/6-05_clip.png">
 				<img class="fixed left-in delay-0 btn1" src="assets/p6/6-03_clip.png" onclick="prev();" ontouchstart="prev();">
 				<img class="fixed right-in delay-1 btn2" src="assets/p6/6-04_clip.png">
-				<img class="fixed left-in sub-btn delay-2 active sub-btn1" src="assets/p6/6-btn-01.png">
-				<img class="fixed right-in sub-btn delay-2 sub-btn2" src="assets/p6/6-btn-02.png">
-				<img class="fixed right-in sub-btn delay-2 sub-btn3" src="assets/p6/6-btn-03.png">
+				<img class="fixed left-in sub-btn delay-2 active sub-btn1" src="assets/p6/6-btn-01.png" onclick="p6.thinLine();" ontouchstart="p6.thinLine();">
+				<img class="fixed right-in sub-btn delay-2 sub-btn2" src="assets/p6/6-btn-02.png" onclick="p6.mediumLine();" ontouchstart="p6.mediumLine();">
+				<img class="fixed right-in sub-btn delay-2 sub-btn3" src="assets/p6/6-btn-03.png" onclick="p6.thickLine();" ontouchstart="p6.thickLine();">
 				<div id="d3-container"></div>
 				<img class="fixed bottom-in delay-3 btn3" src="assets/p6/6-06_clip.png" onclick="next();" ontouchstart="next();">
 
