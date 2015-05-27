@@ -8,8 +8,11 @@
 		},
 		"models": {
 			"masterpiece": {
+				"no": "number",
 				"author": "string",
 				"paths": "array",
+				"dataURL": "string",
+				"favor": "number",
 				"createdAt": "date"
 			}
 		}
