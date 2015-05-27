@@ -12,6 +12,7 @@
 				"author": "string",
 				"paths": "array",
 				"dataURL": "string",
+				"comment": "string",
 				"favor": "number",
 				"createdAt": "date"
 			}
