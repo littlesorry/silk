@@ -2,7 +2,7 @@ requirejs.config({
     baseUrl: '/',
     waitSeconds: 60,
     paths: {
-        'jquery': 'lib/jquery-1.11.1.min',
+        'jquery': '//libs.baidu.com/jquery/1.11.1/jquery.min',
         'fullPage': 'lib/fullPage',
         'three': 'lib/three',
         'project': 'lib/three-project',
