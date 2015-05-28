@@ -12,6 +12,8 @@
 				"author": "string",
 				"paths": "array",
 				"dataURL": "string",
+				"nick": "string",
+				"mobile": "string",
 				"comment": "string",
 				"favor": "number",
 				"createdAt": "date"
