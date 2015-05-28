@@ -73,27 +73,12 @@ require(['jquery', 'fullPage', 'd2', 'd3', 'page'], function($, FullPage, d2, d3
                 }
             }
             , callback : function(index, thisPage) {       // callback when pageChange
-                // window.location.hash = $(thisPage).attr("class").match(/page\d+/);
                 window.location.hash = $(thisPage).data("idx");
                 if ($(thisPage).hasClass('page5')) {
                 } else if ($(thisPage).hasClass('page6')) {
                     p6.render();
                 } else if ($(thisPage).hasClass('page7')) {
                     p7.render();
-                    // if (!window.preview) {
-                    //     window.preview = initCanvas("pre-canvas", {debug: true
-                    //                 , width: $("#pre-canvas").width()
-                    //                 , height: $("#pre-canvas").height()
-                    //                 , onDraw: function(plots) {
-                    //                 }});
-                    // }
-                    // var canvas = window.preview.canvas;
-                    // var img = new Image();
-                    // img.onload = function() {
-                    //     window.preview.ctx.drawImage(img, 0, 0, $("#d3-canvas").attr("width"), $("#d3-canvas").attr("height"), 
-                    //                                 0, 0, canvas.width, canvas.height);  
-                    // };
-                    // img.src = d3.toData();
                 }          
             }
         });

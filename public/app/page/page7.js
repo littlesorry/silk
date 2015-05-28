@@ -21,5 +21,22 @@ define(['jquery', 'd3', 'page4'], function($, d3, p4) {
                                     });
 	};
 
+	p7.upload = function() {
+		var data = {
+			dataURL: d3.toData()
+			, tshirt: p4.picked || 0
+			, comment: $(".page7 .input1").val()
+			, author: $(".page7 .input2").val()
+			, mobile: $(".page7 .input3").val()
+		};
+
+		$.post('/masterpiece/', data, function(resp) {
+			$(".page7 .info").show();
+			setTimeout(function() {
+				// TODO
+			}, 2000);
+		});
+	};
+
 	return p7;
 });

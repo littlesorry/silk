@@ -287,6 +287,22 @@ img.full {
 	width: 130px;
 }
 
+.page7 .info {
+	top: 45%;
+	left: 50%;
+	margin-top: -35px;
+	margin-left: -75px;
+	box-sizing: border-box;
+	width: 150px;
+	height: 70px;
+	padding: 10px 20px;
+	background-color: #a51d55;
+	border-radius: 5px;
+	text-align: center;
+	z-index: 99;
+	display: none;
+}
+
 .page7.step1 .step1-overlay{
 	display: block;
 }

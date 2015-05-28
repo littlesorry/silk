@@ -12,7 +12,7 @@
 				"author": "string",
 				"paths": "array",
 				"dataURL": "string",
-				"nick": "string",
+				"tshirt": "number",
 				"mobile": "string",
 				"comment": "string",
 				"favor": "number",
