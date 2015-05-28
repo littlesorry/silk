@@ -1,4 +1,4 @@
-define(['d3', 'page5'], function(d3, p5) {
+define(['jquery', 'd3', 'page5'], function($, d3, p5) {
 	var p6 = {};
 
 	p6.init = function() {
@@ -22,16 +22,19 @@ define(['d3', 'page5'], function(d3, p5) {
 	};
 
     p6.thinLine = function() {
+        $('.page .sub-btn').removeClass("active").eq(0).addClass("active");
         d3.setSilkWidth(24);
         p6.render();
     };
 
     p6.mediumLine = function() {
+        $('.page .sub-btn').removeClass("active").eq(1).addClass("active");
         d3.setSilkWidth(48);
         p6.render();
     };
 
     p6.thickLine = function() {
+        $('.page .sub-btn').removeClass("active").eq(2).addClass("active");
         d3.setSilkWidth(72);
         p6.render();
     };
