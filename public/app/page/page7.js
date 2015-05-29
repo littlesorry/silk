@@ -21,6 +21,29 @@ define(['jquery', 'd3', 'page4'], function($, d3, p4) {
                                     });
 	};
 
+    p7.showPick = function() {
+        $(".step1-overlay").show();
+    };
+    p7.hidePick = function(toUpdate) {
+        setTimeout(function() {
+            $(".step1-overlay").hide();
+            if (toUpdate) {
+                $(".page7 .input1").val(p7.comment || "").addClass("changed");
+            }
+        }, 300);
+    };
+    p7.pickItem = function(idx) {
+        $(".msg li").removeClass("primary secondary");
+        $(".msg li:nth-child(" + idx + ")").addClass("primary");
+        if (idx > 1) {
+            $(".msg li:nth-child(" + (idx - 1) + ")").addClass("secondary");
+        }
+        if (idx < $(".msg li").size()) {
+            $(".msg li:nth-child(" + (idx + 1) + ")").addClass("secondary");
+        }
+        p7.comment = $(".msg li:nth-child(" + (idx) + ")").text();
+    };
+
 	p7.upload = function() {
 		var data = {
 			dataURL: d3.toData()
@@ -30,10 +53,11 @@ define(['jquery', 'd3', 'page4'], function($, d3, p4) {
 			, mobile: $(".page7 .input3").val()
 		};
 
-		$.post('/masterpiece/', data, function(resp) {
+		$.post('/masterpiece/', data).done(function(resp) {
 			$(".page7 .info").show();
 			setTimeout(function() {
 				// TODO
+				window.location = "/?id=" + resp.id + "#6"
 			}, 2000);
 		});
 	};

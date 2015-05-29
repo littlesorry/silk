@@ -1,6 +1,4 @@
-.hide {
-	display: none;
-}
+
 
 .bg {
 	position: absolute;
@@ -287,7 +285,7 @@ img.full {
 	width: 130px;
 }
 
-.page7 .info {
+.page7 .info, .msg {
 	top: 45%;
 	left: 50%;
 	margin-top: -35px;
@@ -424,12 +422,21 @@ img.full {
 }
 
 .page8 .favor {
-	margin-left: 80px;
+	margin-left: 70px;
 }
 
 .page8 .favor span {
 	color: red;
 	font-size: 24px;
+}
+
+.page8 .work {
+	display: none;
+	top: 30%;
+	left: 50%;
+	margin-left: -120px;
+	width: 240px;
+	height: 240px;
 }
 
 .page8 .btn1, .page8 .btn2, .page8 .btn3 {
@@ -912,6 +919,9 @@ canvas {
 	height: 300px;
 }
 
+.hide {
+	display: none;
+}
 
 @media (max-width: 414px) {
 	.page .contain {

@@ -79,24 +79,23 @@ require(['jquery', 'fullPage', 'd2', 'd3', 'page'], function($, FullPage, d2, d3
                     p6.render();
                 } else if ($(thisPage).hasClass('page7')) {
                     p7.render();
-                }          
+                } else if ($(thisPage).hasClass('page8')) {
+                    p8.render();
+                }         
             }
         });
 
         window.runPage = runPage;
 
         function next() {
-            console.log("next");
             runPage.next();
         }
 
         function prev() {
-            console.log("prev");
             runPage.prev();
         }
 
         function page(idx) {
-            console.log("page");
             runPage.go(idx || 0);
         }
 
@@ -108,31 +107,6 @@ require(['jquery', 'fullPage', 'd2', 'd3', 'page'], function($, FullPage, d2, d3
         window.prev = prev;
         window.page = page;
         window.goInstruction = goInstruction;
-
-        window.showPick = function() {
-            $(".step1-overlay").show();
-        };
-        window.hidePick = function(toUpdate) {
-            setTimeout(function() {
-                $(".step1-overlay").hide();
-                if (toUpdate) {
-                    $(".page7 .input1").val(picked || "").addClass("changed");
-                }
-            }, 300);
-        };
-
-        var picked;
-        window.pickItem = function(idx) {
-            $(".msg li").removeClass("primary secondary");
-            $(".msg li:nth-child(" + idx + ")").addClass("primary");
-            if (idx > 1) {
-                $(".msg li:nth-child(" + (idx - 1) + ")").addClass("secondary");
-            }
-            if (idx < $(".msg li").size()) {
-                $(".msg li:nth-child(" + (idx + 1) + ")").addClass("secondary");
-            }
-            picked = $(".msg li:nth-child(" + (idx) + ")").text();
-        };
 
         if (window.location.hash) {
             runPage.go(window.location.hash.replace("#", ""));
