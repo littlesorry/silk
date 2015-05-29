@@ -285,7 +285,7 @@ img.full {
 	width: 130px;
 }
 
-.page7 .info, .msg {
+.page7 .info, .page8 .msg {
 	top: 45%;
 	left: 50%;
 	margin-top: -35px;
@@ -481,6 +481,32 @@ img.full {
 	margin-top: 23px;
 }
 
+
+.page9 .list-container {
+	width: 285px;
+	min-height: 65%;
+	max-height: 68%;
+	left: 50%;
+	top: 15%;
+	margin-left: -142px;
+	margin-top: 23px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.page9 .list-item {
+	float: left;
+	position: relative;
+	width: 130px;
+	height: 150px;
+	margin: 5px 0 0 8px;
+	overflow: hidden;
+}
+
+.page9 .list-item img {
+	width: 100%;
+}
+
 .page9 .btn1 {
 	width: 104px;
 	left: 50%;
@@ -493,6 +519,22 @@ img.full {
 	left: 50%;
 	bottom: 3%;
 	margin-left: 0px;
+}
+
+.page9 .tab-item-1 {
+	top: 15%;
+	left: 50%;
+	width: 140px;
+	height: 20px;
+	margin-left: -142px;
+}
+
+.page9 .tab-item-2 {
+	top: 15%;
+	left: 50%;
+	width: 142px;
+	height: 20px;
+	margin-left: 2px;
 }
 
 

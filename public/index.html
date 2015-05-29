@@ -33,7 +33,7 @@
 				<img class="fixed left-in i3" style="" src="assets/p3/3-01.png">
 				<img class="fixed bubble delay-3 brand-logo" src="assets/logo_2.png">
 				<img class="fixed bottom-in delay-1 btn1" src="assets/p3/3-04_clip.png" onclick="page(2);" ontouchstart="page(2);">
-				<img class="fixed left-in delay-2 btn2" src="assets/p3/3-05_clip.png">
+				<img class="fixed left-in delay-2 btn2" src="assets/p3/3-05_clip.png" onclick="page(7);" ontouchstart="page(7);">
 				<img class="fixed right-in delay-3 btn3" src="assets/p3/3-06_clip.png" onclick="goInstruction();" ontouchstart="goInstruction();">
 			</div>
 		</div>
@@ -62,7 +62,7 @@
 				<img class="fixed left-in delay-1 btn1" src="assets/p5/5-02_clip.png" onclick="prev();" ontouchstart="prev();">
 				<img class="fixed left-in delay-0 btn2" src="assets/p5/5-03_clip.png" onclick="p5.clear();" ontouchstart="clearCanvas();">
 				<img class="fixed right-in delay-2 btn3" src="assets/p5/5-04_clip.png" onclick="p5.undo();" ontouchstart="undo();">
-				<img class="fixed bottom-in delay-3 btn4" src="assets/p5/5-06_clip.png" onclick="page(4);" ontouchstart="page(4);">
+				<img class="fixed bottom-in delay-3 btn4" src="assets/p5/5-06_clip.png" onclick="p5.next();" ontouchstart="p5.next();">
 			</div>
 		</div>
 		<!-- page 6, idx 4 -->
@@ -166,10 +166,15 @@
 				<img class="fixed label delay-0" src="assets/p10/10-02_clip.png">	
 				<img class="fixed bubble delay-3 brand-logo" src="assets/logo_2.png">
 				<img class="fixed tab bubble" src="assets/p10/10-03_clip.png">
+				<div class="fixed tab-item-1" onclick="p9.tab(0);" ontouchstart="p9.tab(0);"></div>
+				<div class="fixed tab-item-2" onclick="p9.tab(1);" ontouchstart="p9.tab(1);"></div>
 				<img class="fixed list bubble" src="assets/p10/10-04_clip.png">
+				<div class="fixed list-container">
+					<div style="height: 50px;width:100%;"></div>
+				</div>
 
 				<img class="fixed left-in delay-1 btn1" src="assets/p10/10-07_clip.png">
-				<img class="fixed bottom-in delay-2 btn2" src="assets/p10/10-08_clip.png">
+				<img class="fixed bottom-in delay-2 btn2" src="assets/p10/10-08_clip.png" onclick="p8.start();" ontouchstart="p8.start();">
 
 			</div>
 		</div>

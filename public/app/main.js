@@ -20,7 +20,8 @@ requirejs.config({
         'page5': 'app/page/page5',
         'page6': 'app/page/page6',
         'page7': 'app/page/page7',
-        'page8': 'app/page/page8'
+        'page8': 'app/page/page8',
+        'page9': 'app/page/page9'
     },
     shim: {
         'fullPage': {
@@ -81,7 +82,9 @@ require(['jquery', 'fullPage', 'd2', 'd3', 'page'], function($, FullPage, d2, d3
                     p7.render();
                 } else if ($(thisPage).hasClass('page8')) {
                     p8.render();
-                }         
+                } else if ($(thisPage).hasClass('page9')) {
+                    p9.render();
+                }       
             }
         });
 
