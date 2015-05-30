@@ -282,7 +282,7 @@ img.full {
 
 .page7 .input1 {
 	bottom: 21%;
-	height: 48px;
+	height: 24px;
 	background-image: url(../assets/p7/7_txt_01.png);
     background-position: 4% 50%;
 }
@@ -302,13 +302,13 @@ img.full {
 }
 
 .page7 .btn1 {
-	bottom: 1.5%;
+	bottom: 1%;
 	left: 13%;
 	width: 95px;
 }
 
 .page7 .btn2 {
-	bottom: 1.5%;
+	bottom: 1%;
 	right: 13%;
 	width: 130px;
 }
@@ -1108,7 +1108,8 @@ canvas {
 	}
 
 	.page7 .input1 {
-		bottom: 28%
+		bottom: 28%;
+		height: 50px;
 	}
 
 	.page7 .input2 {
