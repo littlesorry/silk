@@ -3,6 +3,14 @@ define(['jquery'], function($) {
 	var p9 = {
 		idx: 0
 	};
+
+	p9.init = function() {
+		$(".page9").on("touchstart", ".list-item", function() {
+			var id = $(this).data("id");
+			window.location = "/?id=" + id+ "#6"
+		});
+	};
+
 	p9.tab = function(idx) {
 		if (idx === p9.idx) {
 			return;
@@ -33,12 +41,22 @@ define(['jquery'], function($) {
 				if (masterpiece.dataURL.length <　20) {
 					continue;
 				}
-				var tshirt = (masterpiece.tshirt || 0) + 1;
-				var html = '<div class="fixed bottom-in delay-0 list-item"><img class="fixed delay-1 bubble" src="assets/t-' 
-							+ tshirt + '.png"><img class="fixed bubble delay-3 work"></div>';
-				var div = $(html);
-				div.find(".work").get(0).src = masterpiece.dataURL;
 
+				var tshirt = (masterpiece.tshirt || 0) + 1;
+				var html = '<div class="fixed bottom-in delay-0 list-item">'
+							+ '<img class="fixed delay-1 bubble" src="assets/t-' 
+							+ tshirt + '.png"><img class="fixed bubble delay-3 work">'
+							+ '<div class="fixed bubble info">'
+							+ 'No. <span class="no">' + masterpiece.no + '</span><br />'
+							+ '<span class="author">' + masterpiece.author + '</span>'
+							+ '</div>'
+							+ '<div class="fixed bubble favor">'
+							+ '<span class="focus delay-5">' + masterpiece.favor + '</span>赞'
+							+ '</div>'
+							+ '</div>';
+				var div = $(html);
+				div.data("id", masterpiece._id);
+				div.find(".work").get(0).src = masterpiece.dataURL;
 				$(".page9 .list-container").prepend(div);
 			}
 		});
@@ -47,18 +65,29 @@ define(['jquery'], function($) {
 	p9.topFavor = function() {
 		$.get("/masterpiece/favors?no=10")
 		.done(function(resp) {
-			resp.forEach(function(masterpiece) {
+			for (var i = resp.length - 1; i >=0; i--) {
+				var masterpiece = resp[i];
 				if (masterpiece.dataURL.length <　20) {
-					return;
+					continue;
 				}
-				var tshirt = (masterpiece.tshirt || 0) + 1;
-				var html = '<div class="fixed bottom-in delay-0 list-item"><img class="fixed delay-1 bubble" src="assets/t-' 
-							+ tshirt + '.png"><img class="fixed bubble delay-3 work"></div>';
-				var div = $(html);
-				div.find(".work").get(0).src = masterpiece.dataURL;
 
+				var tshirt = (masterpiece.tshirt || 0) + 1;
+				var html = '<div class="fixed bottom-in delay-0 list-item">'
+							+ '<img class="fixed delay-1 bubble" src="assets/t-' 
+							+ tshirt + '.png"><img class="fixed bubble delay-3 work">'
+							+ '<div class="fixed bubble info">'
+							+ 'No. <span class="no">' + masterpiece.no + '</span><br />'
+							+ '<span class="author">' + masterpiece.author + '</span>'
+							+ '</div>'
+							+ '<div class="fixed bubble favor">'
+							+ '<span class="focus delay-5">' + masterpiece.favor + '</span>赞'
+							+ '</div>'
+							+ '</div>';
+				var div = $(html);
+				div.data("id", masterpiece._id);
+				div.find(".work").get(0).src = masterpiece.dataURL;
 				$(".page9 .list-container").prepend(div);
-			});
+			}
 		});
 	};
 

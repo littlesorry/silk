@@ -44,7 +44,33 @@ define(['jquery', 'd3', 'page4'], function($, d3, p4) {
         p7.comment = $(".msg li:nth-child(" + (idx) + ")").text();
     };
 
+    function check() {
+        var errors = [];
+        if (!$(".page7 .input1").val()) {
+            errors.push("请填写留言");
+        }
+        if (!$(".page7 .input2").val()) {
+            errors.push("请填写昵称");
+        }
+        if (!/\d+/.test($(".page7 .input3").val())) {
+            errors.push("请填写正确的手机号");
+        }
+        return errors;
+    }
+
 	p7.upload = function() {
+        var errors = check();
+        if (errors.length > 0) {
+            var errMsg = errors.reduce(function(pre, cur) {
+                return pre + "<br />" + cur;
+            });
+            $(".page7 .err").html(errMsg).show();
+            setTimeout(function() {
+                $(".page7 .err").hide();
+            }, 2000);
+            return;
+        }
+
 		var data = {
 			dataURL: d3.toData()
 			, tshirt: p4.picked || 0
@@ -56,7 +82,6 @@ define(['jquery', 'd3', 'page4'], function($, d3, p4) {
 		$.post('/masterpiece/', data).done(function(resp) {
 			$(".page7 .info").show();
 			setTimeout(function() {
-				// TODO
 				window.location = "/?id=" + resp.id + "#6"
 			}, 2000);
 		});

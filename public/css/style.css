@@ -285,14 +285,14 @@ img.full {
 	width: 130px;
 }
 
-.page7 .info, .page8 .msg {
-	top: 45%;
+.page7 .info, .page7 .err, .page8 .msg {
+	top: 42%;
 	left: 50%;
 	margin-top: -35px;
 	margin-left: -75px;
 	box-sizing: border-box;
+	padding: 15px 0;
 	width: 150px;
-	height: 70px;
 	padding: 10px 20px;
 	background-color: #a51d55;
 	border-radius: 5px;
@@ -411,14 +411,14 @@ img.full {
 
 .page8 .info, .page8 .favor {
 	left: 50%;
-	top: 23%;
+	top: 24%;
 	color: #666;
 	font-weight: 100;
 	font-size: 12px;
 }
 
 .page8 .info {
-	margin-left: -120px;
+	margin-left: -115px;
 }
 
 .page8 .favor {
@@ -501,6 +501,7 @@ img.full {
 	height: 150px;
 	margin: 5px 0 0 8px;
 	overflow: hidden;
+	padding-top: 26px;
 }
 
 .page9 .list-item img {
@@ -537,6 +538,27 @@ img.full {
 	margin-left: 2px;
 }
 
+.page9 .info, .page9 .favor {
+	top: 1%;
+	color: #666;
+	font-weight: 100;
+	font-size: 12px;
+}
+
+.page9 .info {
+	left: 3%;
+	line-height: 12px;
+}
+
+.page9 .favor {
+	right: 3%;
+	line-height: 24px;
+}
+
+.page9 .favor span {
+	color: red;
+	font-size: 24px;
+}
 
 .page-instruction {
 	background: url(../assets/instruction.jpg) top;

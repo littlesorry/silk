@@ -29,7 +29,8 @@ define(['jquery'], function($) {
 			$(".page8 .favor span").text(resp.favor);
 			$(".page8 .favor").show();
 
-			$(".page8 .info span").text(resp.no);
+			$(".page8 .info .no").text(resp.no);
+			$(".page8 .info .author").text(resp.author);
 			$(".page8 .info").show();
 
 			var img = $(".page8 .work").get(0);
