@@ -3,7 +3,7 @@ define(['jquery', 'wx'], function($, wx) {
 	var wechat = {};
 
 	var host = 'http://elgame.gofaner.com/';
-	var img = 'http://elgame.gofaner.com/assets/img_96.png';
+	var img = 'http://elgame.gofaner.com/assets/img_96.jpg';
 
 	wechat.init = function() {
         wx.showOptionMenu();
@@ -19,10 +19,10 @@ define(['jquery', 'wx'], function($, wx) {
 	wechat.shareTimeline = function(id) {
 		var link = id ? host + id + '#6' : host;
 		wx.onMenuShareTimeline({
-		    title: '雅诗兰黛', // 分享标题
-		    desc: '雅诗兰黛关爱乳腺健康', // 分享描述
-		    link: link, // 分享链接
-		    imgUrl: img, // 分享图标
+		    title: '雅诗兰黛',
+		    desc: '雅诗兰黛关爱乳腺健康',
+		    link: link,
+		    imgUrl: img,
 		    success: function () {
 		    	shareOK();
 		    },
@@ -34,10 +34,10 @@ define(['jquery', 'wx'], function($, wx) {
 	wechat.shareFriend = function() {
 		var link = id ? host + id + '#6' : host;
 		wx.onMenuShareAppMessage({
-		    title: '雅诗兰黛', // 分享标题
-		    desc: '雅诗兰黛关爱乳腺健康', // 分享描述
-		    link: link, // 分享链接
-		    imgUrl: img, // 分享图标
+		    title: '雅诗兰黛',
+		    desc: '雅诗兰黛关爱乳腺健康',
+		    link: link,
+		    imgUrl: img,
 		    success: function () { 
 		    	shareOK();
 		    },
