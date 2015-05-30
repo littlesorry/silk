@@ -52,7 +52,7 @@ define(['jquery', 'd3', 'page4'], function($, d3, p4) {
         if (!$(".page7 .input2").val()) {
             errors.push("请填写昵称");
         }
-        if (!/\d+/.test($(".page7 .input3").val())) {
+        if ($(".page7 .input3").val() && !/1\d{10}/.test($(".page7 .input3").val())) {
             errors.push("请填写正确的手机号");
         }
         return errors;
@@ -82,7 +82,7 @@ define(['jquery', 'd3', 'page4'], function($, d3, p4) {
 		$.post('/masterpiece/', data).done(function(resp) {
 			$(".page7 .info").show();
 			setTimeout(function() {
-				window.location = "/?id=" + resp.id + "#6"
+				window.location = "/?id=" + resp.id + "#6";
 			}, 2000);
 		});
 	};

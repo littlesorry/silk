@@ -11,6 +11,8 @@ requirejs.config({
         'app': 'app/app',
         'd2': 'app/2d',
         'd3': 'app/3d',
+        'wx': '//res.wx.qq.com/open/js/jweixin-1.0.0',
+        'wechat': 'app/wechat',
         'page': 'app/page',
         'page0': 'app/page/page0',
         'page1': 'app/page/page1',
@@ -29,6 +31,9 @@ requirejs.config({
         },
         'jquery': {
             exports: '$'
+        },
+        'wx': {
+            exports: 'wx'
         },
         'three': {
             exports: 'THREE'
@@ -49,29 +54,28 @@ requirejs.config({
     }
 });
 
-require(['jquery', 'fullPage', 'd2', 'd3', 'page'], function($, FullPage, d2, d3, pages) {
+require(['jquery', 'fullPage', 'd2', 'd3', 'page', 'wx'], function($, FullPage, d2, d3, pages, wx) {
     $(function() {
         pages.init();
+        wx.showOptionMenu();
+        
         var runPage = new FullPage({
             id : 'pageContain',                            // id of contain
             slideTime : 500,                               // time of slide
             effect : {                                     // slide effect
-                    transform : {
-                        translate : 'X',                   // 'X'|'Y'|'XY'|'none'
-                        scale : [1, 1],                   // [scalefrom, scaleto]
-                        rotate : [0, 0]                    // [rotatefrom, rotateto]
-                    },
-                    opacity : [0, 1]                       // [opacityfrom, opacityto]
-                },                           
+                transform : {
+                    translate : 'X',                   // 'X'|'Y'|'XY'|'none'
+                    scale : [1, 1],                   // [scalefrom, scaleto]
+                    rotate : [0, 0]                    // [rotatefrom, rotateto]
+                },
+                opacity : [0, 1]                       // [opacityfrom, opacityto]
+            },                           
             mode : '',               // mode of fullpage
             easing : 'ease'                                // easing('ease','ease-in','ease-in-out' or use cubic-bezier like [.33, 1.81, 1, 1];
             , onSwipeStart : function(index, thisPage) {   // callback before pageChange
-                // return 'stop';
             }
             , beforeChange : function(index, thisPage) {   // callback before pageChange
-                // return 'stop';
-                if ($(thisPage).hasClass("page6")) {
-                }
+
             }
             , callback : function(index, thisPage) {       // callback when pageChange
                 window.location.hash = $(thisPage).data("idx");

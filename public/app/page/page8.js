@@ -1,4 +1,4 @@
-define(['jquery'], function($) {
+define(['jquery', 'wechat'], function($, wechat) {
 
 	function getParam(name) {
 		name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -19,13 +19,18 @@ define(['jquery'], function($) {
 	p8.render = function() {
 		var id = getParam("id");
 		if (typeof id === "undefined" || id === "" || id === "undefined") {
-			alert("无效的作品号！");
+			$(".dialog").html("无效的作品号！").show();
+			setTimeout(function() {
+				$(".dialog").hide();
+			}, 2000);
 			return;
 		}
 
 		$.getJSON("/masterpiece/" + id)
 		.done(function(resp) {
+			wechat.shareTimeline(id);
 			$(".page8 .t-shirt").hide().eq(resp.tshirt || 0).show();
+			$(".page8 .label1 span").text(resp.no);
 			$(".page8 .favor span").text(resp.favor);
 			$(".page8 .favor").show();
 
@@ -44,12 +49,18 @@ define(['jquery'], function($) {
 	p8.favor = function() {
 		var id = getParam("id");
 		if (typeof id === "undefined" || id === "" || id === "undefined") {
-			alert("无效的作品号！");
+			$(".dialog").html("无效的作品号！").show();
+			setTimeout(function() {
+				$(".dialog").hide();
+			}, 2000);
 			return;
 		}
 
 		if (hasFavored(id)) {
-			alert("请勿重复点赞！");
+			$(".dialog").html("请勿重复点赞！").show();
+			setTimeout(function() {
+				$(".dialog").hide();
+			}, 2000);
 			return;
 		}
 
@@ -68,6 +79,10 @@ define(['jquery'], function($) {
 
 	p8.start = function() {
 		window.location = "/";
+	};
+
+	p8.close = function() {
+		wechat.close();
 	};
 
 	return p8;

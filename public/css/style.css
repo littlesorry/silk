@@ -285,14 +285,14 @@ img.full {
 	width: 130px;
 }
 
-.page7 .info, .page7 .err, .page8 .msg {
+.page7 .info, .page7 .err, .page8 .msg, .dialog {
 	top: 42%;
 	left: 50%;
 	margin-top: -35px;
-	margin-left: -75px;
+	margin-left: -80px;
 	box-sizing: border-box;
 	padding: 15px 0;
-	width: 150px;
+	width: 160px;
 	padding: 10px 20px;
 	background-color: #a51d55;
 	border-radius: 5px;
@@ -390,6 +390,15 @@ img.full {
 	left: 50%;
 	top: 11%;
 	margin-left: -107px;
+	text-align: center;
+	font-weight: 100;
+}
+
+.page8 .label1 span {
+	color: red;
+	font-size: 24px;
+	line-height: 20px;
+	margin: 0 2px;
 }
 
 .page8 .label2 {
@@ -407,7 +416,7 @@ img.full {
 	z-index: 0;
 }
 
-.page8 .t-shirt {position: absolute; top: 30%; left: 50%; width: 200px; margin-left: -100px;}
+.page8 .t-shirt {position: absolute; top: 30%; left: 50%; width: 208px; margin-left: -104px;}
 
 .page8 .info, .page8 .favor {
 	left: 50%;
@@ -474,7 +483,7 @@ img.full {
 
 .page9 .list {
 	width: 285px;
-	max-height: 65%;
+	max-height: 70%;
 	left: 50%;
 	top: 15%;
 	margin-left: -142px;
@@ -988,19 +997,13 @@ canvas {
 }
 
 @media (max-width: 414px) {
-	.page .contain {
-		background-size: 414px;
-	}
+
 }
 
 @media (max-width: 375px) {
-	.page .contain {
-		background-size: 375px;
-	}
+
 }
 
 @media (max-width: 320px) {
-	.page .contain {
-		background-size: 320px;
-	}
+
 }

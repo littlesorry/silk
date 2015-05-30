@@ -6,12 +6,16 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta name="apple-touch-fullscreen" content="yes" />	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/fullPage.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script data-main="app/main" src="lib/require-2.1.17.js"></script>
 </head>
 <body>
+	<div class="fixed hide bubble dialog">
+	
+	</div>
 	<div id="pageContain">
 		<!-- page 1, idx 0-->
 		<div class="page page1 current" data-idx="0">
@@ -94,11 +98,10 @@
 				<div id="preview-container">
 					<canvas id="pre-canvas"></canvas>
 				</div>
-
 				<input class="fixed input full-line left-in delay-1 input1" type="text" maxlength="20" onclick="p7.showPick();" ontouchstart="p7.showPick();">
 
 				<input class="fixed input full-line right-in delay-2 input2" type="text" maxlength="8">
-				<input class="fixed input full-line left-in delay-3 input3" type="text" maxlength="14">
+				<input class="fixed input full-line left-in delay-3 input3" type="text" maxlength="11">
 
 				<img class="fixed left-in delay-3 btn1" src="assets/p7/7-07_clip.png" onclick="page(4);" ontouchstart="page(4);">
 				<!-- page(6); -->
@@ -125,18 +128,20 @@
 					</ul>
 					<img class="fixed left-in delay-1 step-btn1" src="assets/p8/8-04_clip.png" onclick="p7.hidePick(true);" ontouchstart="p7.hidePick(true);">
 					<img class="fixed right-in delay-2 step-btn2" src="assets/p8/8-05_clip.png" onclick="p7.hidePick();" ontouchstart="p7.hidePick();">
-
 				</div>
 			</div>
 		</div>
-
 		<div class="page page8" data-idx="6">
 			<div class="contain">
 				<img class="bg fadeIn" src="assets/bg.jpg">
 				<div class="overlay" style="display:block;">
 					<img class="fixed label delay-0 label0" src="assets/p9/9-02_clip.png">	
 					<img class="fixed delay-0 icon1" src="assets/p9/9-03_clip.png">	
-					<img class="fixed delay-1 label1 fadeIn" src="assets/p9/9-04_clip.png">
+					<!-- <img class="fixed delay-1 label1 fadeIn" src="assets/p9/9-04_clip.png"> -->
+					<div class="fixed delay-1 label1 fadeIn">
+						关爱乳腺健康从我开始，<br />
+						这是地球上第<span>111</span>件粉T哦！
+					</div>
 					<img class="fixed delay-1 label2 bottom-in " src="assets/p9/9-09_clip.png">							
 					<img class="fixed bubble canvas" src="assets/p9/9-05_clip.png">
 					<div class="fixed hide left-in delay-2 info">
@@ -151,16 +156,14 @@
 					<img class="fixed hide bubble t-shirt t-shirt-2" src="assets/t-2.png">
 					<img class="fixed hide bubble t-shirt t-shirt-3" src="assets/t-3.png">
 					<img class="fixed hide bubble t-shirt t-shirt-4" src="assets/t-4.png">
-
 					<img class="fixed bubble delay-4 work">
-
 					<div class="fixed hide bubble msg">
 						点赞成功
 					</div>
 
 					<img class="fixed left-in delay-2 btn1" src="assets/p9/9-06_clip.png" onclick="p8.favor();" ontouchstart="p8.favor();">
-					<img class="fixed right-in delay-2 btn2" src="assets/p9/9-07_clip.png"  onclick="p8.start();" ontouchstart="p8.start();">
-					<img class="fixed right-in delay-3 btn3" src="assets/p9/9-08_clip.png">
+					<img class="fixed right-in delay-2 btn2" src="assets/p9/9-07_clip.png" onclick="p8.start();" ontouchstart="p8.start();">
+					<img class="fixed right-in delay-3 btn3" src="assets/p9/9-08_clip.png" onclick="p8.close();" ontouchstart="p8.close();">
 				</div>
 			</div>
 		</div>
@@ -175,12 +178,9 @@
 				<div class="fixed tab-item-2" onclick="p9.tab(1);" ontouchstart="p9.tab(1);"></div>
 				<img class="fixed list bubble" src="assets/p10/10-04_clip.png">
 				<div class="fixed list-container">
-					<div style="height: 50px;width:100%;"></div>
 				</div>
-
 				<img class="fixed left-in delay-1 btn1" src="assets/p10/10-07_clip.png">
 				<img class="fixed bottom-in delay-2 btn2" src="assets/p10/10-08_clip.png" onclick="p8.start();" ontouchstart="p8.start();">
-
 			</div>
 		</div>
 	</div>
