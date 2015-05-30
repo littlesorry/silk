@@ -17,6 +17,7 @@ define(['jquery', 'wechat'], function($, wechat) {
 	var p8 = {};
 
 	p8.render = function() {
+		p8.id = null;
 		var ajax;
 		if (/no=/.test(window.location.search)) {
 			// no search;
@@ -42,7 +43,8 @@ define(['jquery', 'wechat'], function($, wechat) {
 		}
 
 		ajax.done(function(resp) {
-			wechat.shareTimeline(id);
+			p8.id = resp.id;
+			wechat.shareTimeline(resp.id);
 			$(".page8 .t-shirt").hide().eq(resp.tshirt || 0).show();
 			$(".page8 .label1 span").text(resp.no);
 			$(".page8 .favor span").text(resp.favor);
@@ -61,7 +63,7 @@ define(['jquery', 'wechat'], function($, wechat) {
 	};
 
 	p8.favor = function() {
-		var id = getParam("id");
+		var id = p8.id;
 		if (typeof id === "undefined" || id === "" || id === "undefined") {
 			$(".dialog").html("无效的作品号！").show();
 			setTimeout(function() {

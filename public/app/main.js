@@ -56,10 +56,11 @@ requirejs.config({
 
 require(['jquery', 'fullPage', 'd2', 'd3', 'page', 'wechat'], function($, FullPage, d2, d3, pages, wechat) {
     $(function() {
+        var preOntouch = document.ontouchstart;
         document.ontouchstart = function(e){ 
             e.preventDefault(); 
-        }
-        
+        };
+
         pages.init();
         wechat.init();
         wechat.shareTimeline();
@@ -84,6 +85,10 @@ require(['jquery', 'fullPage', 'd2', 'd3', 'page', 'wechat'], function($, FullPa
             }
             , callback : function(index, thisPage) {       // callback when pageChange
                 window.location.hash = $(thisPage).data("idx");
+                if (!$(thisPage).hasClass('page1')) {
+                    document.ontouchstart = preOntouch;
+                } 
+
                 if ($(thisPage).hasClass('page5')) {
                 } else if ($(thisPage).hasClass('page6')) {
                     p6.render();
