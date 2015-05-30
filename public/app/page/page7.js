@@ -25,12 +25,12 @@ define(['jquery', 'd3', 'page4'], function($, d3, p4) {
         $(".step1-overlay").show();
     };
     p7.hidePick = function(toUpdate) {
+       if (toUpdate) {
+            $(".page7 .input1").val(p7.comment || "").addClass("changed");
+        }
         setTimeout(function() {
             $(".step1-overlay").hide();
-            if (toUpdate) {
-                $(".page7 .input1").val(p7.comment || "").addClass("changed");
-            }
-        }, 300);
+         }, 500);
     };
     p7.pickItem = function(idx) {
         $(".msg li").removeClass("primary secondary");
