@@ -1,4 +1,4 @@
-define(['jquery', 'd3', 'page4'], function($, d3, p4) {
+define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
 
 	var p7 = {};
 
@@ -79,7 +79,9 @@ define(['jquery', 'd3', 'page4'], function($, d3, p4) {
 			, mobile: $(".page7 .input3").val()
 		};
 
+        NP.start();
 		$.post('/masterpiece/', data).done(function(resp) {
+            NP.done();
 			$(".page7 .info").show();
 			setTimeout(function() {
 				window.location = "/?id=" + resp.id + "#6";

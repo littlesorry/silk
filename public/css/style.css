@@ -40,27 +40,23 @@ img.full {
 }
 
 .page1 .point {
+	top: 5%;
+	left: 50%;
 	width: 24%;
 	height: 75px;
 }
 
 .page1 .p-start {
-	top: 5%;
-	left: 50%;
 	margin-top: 235px;
 	margin-left: -139px;
 }
 
 .page1 .p-top {
-	top: 5%;
-	left: 50%;
 	margin-top: 50px;
 	margin-left: 30px;
 }
 
 .page1 .p-end {
-	top: 5%;
-	left: 50%;
 	margin-top: 250px;
 	margin-left: 20px;
 }
@@ -110,14 +106,14 @@ img.full {
 .page3 .btn2 {
 	bottom: 8%;
 	left: 50%;
-	margin-left: -112px;
+	margin-left: -110px;
 	width: 104px;
 }
 
 .page3 .btn3 {
 	bottom: 8%;
 	left: 50%;
-	margin-left: 8px;
+	margin-left: 5px;
 	width: 104px;
 }
 
@@ -1103,8 +1099,48 @@ canvas {
 }
 
 /** ip 4*/
-@media screen and (min-device-height : 465px) {
+@media screen and (min-device-height : 410px) and (max-device-height: 465px) {
+	.page1 .i1, .page1 .i2, .page1 .point {top: -10%;}
 
+	.page3 .i1 {margin-top: -5%;}
+	.page3 .i2 {top:18%;}
+	.page3 .i3 {bottom: 26%;}
+	.page3 .btn1 {bottom: 14%;}
+	.page3 .btn2, .page3 .btn3 {bottom: 3%;}
+
+	.page4 .btn3, .page4 .btn4 {bottom: 7%;}
+
+	.page5 .label {margin-top: -3.5%;width: 260px;margin-left: -130px;}
+	.page5 .btn1, .page5 .btn2, .page5 .btn3 {top: 10%;}
+	.page5 .btn4 {bottom: 0.5%;width: 130px;margin-left: -65px;}
+	.page5 .canvas {top:11%;}
+	.page5 #canvas {top: 17%;}
+
+	.page6 .label {margin-top: -4%;left:50%;width: 260px;margin-left: -130px;}
+	.page6 .btn1, .page6 .btn2, .page6 .sub-btn1, .page6 .sub-btn2, .page6 .sub-btn3 {top:10.5%;}
+	.page6 .canvas {top:11.5%;}
+	.page6 #d3-canvas {top:17.5%;}
+	.page6 .btn3 {width: 120px; margin-left: -60px;bottom: 0.75%;}
+
+	.page7 .label {top:1%; width: 250px; margin-left: -125px;}
+	.page7 .canvas {top: 3.5%;}
+	.page7 .t-shirt {top: 12%;}
+	.page7 .btn1, .page7 .btn2 {bottom: 0.5%;}
+	.page7 .btn1 {width: 85px;}
+	.page7 .btn2 {width: 115px;}
+	.page7 .input3 {bottom: 8%;}
+	.page7 .input2 {bottom: 14.25%}
+	.page7 .input1 {bottom: 20.75%}
+
+	.page8 .label0, .page8 .icon1{top:0.5%;}
+	.page8 .label1 {top: 6%;font-size: 12px;}
+	.page8 .label1 span {line-height: 12px;font-size: 14px;}
+	.page8 .canvas{top:16%;}
+	.page8 .info, .page8 .favor {top: 18%;}
+	.page8 .t-shirt {top:24.5%;}
+	.page8 .work{top: 23%;}
+	.page8 .btn1, .page8 .btn2, .page8 .btn3 {bottom: 1%;}
+	.page8 .label2 {display: none;}
 }
 
 /** ip 5 */

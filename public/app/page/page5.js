@@ -13,7 +13,10 @@ define(['d2'], function(d2) {
 
         p5.next = function() {
                 if (p5.d2.getPaths().length === 0) {
-                        alert("画点什么吧～");
+                        $('.dialog').html("画点什么吧～").show();
+                        setTimeout(function() {
+                                $('.dialog').hide();
+                        }, 2000);
                         return;
                 }
                 page(4);

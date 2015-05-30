@@ -1,14 +1,10 @@
-define(['jquery', 'jtap'], function($, jtap) {
+define(['jquery', 'jtap', 'nprogress'], function($, jtap, NP) {
 
 	var p9 = {
 		idx: 0
 	};
 
 	p9.init = function() {
-		// $(".list-item").on("tap", function(e) {
-		// 	var id = $(this).data("id");
-		// 	window.location = "/?id=" + id+ "#6"
-		// });
 		$("body").on("touchstart", ".dialog .btn", function() {
 			if (!$(".dialog input").val()) {
 				return;
@@ -78,14 +74,17 @@ define(['jquery', 'jtap'], function($, jtap) {
 				window.location = "/?id=" + id+ "#6";
 			});
 		}
+		NP.done();
 	}
 
 	p9.latest = function() {
+		NP.start();
 		$.get("/masterpiece/lastest?no=10")
 		.done(addList);
 	};
 
 	p9.topFavor = function() {
+		NP.start();
 		$.get("/masterpiece/favors?no=10")
 		.done(addList);
 	};

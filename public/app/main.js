@@ -4,6 +4,7 @@ requirejs.config({
     paths: {
         'jquery': '//libs.baidu.com/jquery/1.11.1/jquery.min',
         'jtap': 'lib/jtap',
+        'nprogress': 'lib/nprogress',
         'fullPage': 'lib/fullPage',
         'three': 'lib/three',
         'project': 'lib/three-project',
