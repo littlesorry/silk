@@ -3,7 +3,7 @@ define(['jquery', 'wx'], function($, wx) {
 	var wechat = {};
 
 	var host = 'http://elgame.gofaner.com/';
-	var img = 'http://elgame.gofaner.com/assets/img.jpg';
+	var img = 'http://elgame.gofaner.com/assets/img_96.png';
 
 	wechat.init = function() {
         wx.showOptionMenu();
@@ -20,13 +20,13 @@ define(['jquery', 'wx'], function($, wx) {
 		var link = id ? host + id + '#6' : host;
 		wx.onMenuShareTimeline({
 		    title: '雅诗兰黛', // 分享标题
+		    desc: '雅诗兰黛关爱乳腺健康', // 分享描述
 		    link: link, // 分享链接
 		    imgUrl: img, // 分享图标
 		    success: function () {
 		    	shareOK();
 		    },
 		    cancel: function () {
-		    	 
 		    }
 		});
 	};
