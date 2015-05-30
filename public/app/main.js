@@ -3,6 +3,7 @@ requirejs.config({
     waitSeconds: 60,
     paths: {
         'jquery': '//libs.baidu.com/jquery/1.11.1/jquery.min',
+        'jtap': 'lib/jtap',
         'fullPage': 'lib/fullPage',
         'three': 'lib/three',
         'project': 'lib/three-project',
@@ -31,6 +32,9 @@ requirejs.config({
         },
         'jquery': {
             exports: '$'
+        },
+        'jtap': {
+            deps: ['jquery']
         },
         'wx': {
             exports: 'wx'

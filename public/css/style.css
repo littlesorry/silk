@@ -9,10 +9,11 @@
 body {
 	position: relative;
 	color: white;
-	background-color: pink;
+	background-color: #f9b5ce;
 	background-image: url(../assets/bg.jpg);
 	background-position: bottom center;
 	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 img.full {
@@ -1101,29 +1102,34 @@ canvas {
 	display: none;
 }
 
+/** ip 4*/
+@media screen and (min-device-height : 465px) {
+
+}
+
 /** ip 5 */
-@media screen and (min-device-height : 520px) {
+@media screen and (min-device-height : 510px) {
 	.page3 .i3 {
 		bottom: 35%;
 	}
 
 	.page7 .input1 {
-		bottom: 28%;
+		bottom: 25%;
 		height: 50px;
 	}
 
 	.page7 .input2 {
-		bottom: 21%;
+		bottom: 18%;
 		height: 28px;
 	}
 
 	.page7 .input3 {
-		bottom: 14%;
+		bottom: 11%;
 		height: 28px;
 	}
 
 	.page7 .btn1, .page7 .btn2 {
-		bottom: 5%;
+		bottom: 2%;
 	}
 }
 
