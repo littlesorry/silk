@@ -54,11 +54,12 @@ requirejs.config({
     }
 });
 
-require(['jquery', 'fullPage', 'd2', 'd3', 'page', 'wx'], function($, FullPage, d2, d3, pages, wx) {
+require(['jquery', 'fullPage', 'd2', 'd3', 'page', 'wechat'], function($, FullPage, d2, d3, pages, wechat) {
     $(function() {
         pages.init();
-        wx.showOptionMenu();
-        
+        wechat.init();
+        wechat.shareTimeline();
+
         var runPage = new FullPage({
             id : 'pageContain',                            // id of contain
             slideTime : 500,                               // time of slide
