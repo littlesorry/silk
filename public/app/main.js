@@ -56,6 +56,10 @@ requirejs.config({
 
 require(['jquery', 'fullPage', 'd2', 'd3', 'page', 'wechat'], function($, FullPage, d2, d3, pages, wechat) {
     $(function() {
+        document.ontouchstart = function(e){ 
+            e.preventDefault(); 
+        }
+        
         pages.init();
         wechat.init();
         wechat.shareTimeline();
