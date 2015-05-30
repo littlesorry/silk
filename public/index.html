@@ -19,10 +19,13 @@
 	<div id="pageContain">
 		<!-- page 1, idx 0-->
 		<div class="page page1 current" data-idx="0">
-			<div class="contain" onclick="page(1);" ontouchstart="page(1);">
-				<img class="bg fadeIn" src="assets/bg.jpg">
-				<img class="fixed bubble i1 center-x " src="assets/p1/1-02.png">
+			<div class="contain">
+				<img class="fixed bubble i1 i1_old center-x " src="assets/p1/1-02.png">
+				<img class="fixed hide fadeIn duration-long i1 i1_new center-x " src="assets/p1/2-01.png">
 				<img class="fixed left-in delay-1 i2 center-x " src="assets/p1/1-03.png">
+				<div class="fixed point p-start" data-path="1"></div>
+				<div class="fixed point p-top" data-path="2"></div>
+				<div class="fixed point p-end" data-path="3"></div>
 				<img class="fixed bottom-in delay-2 logo1" src="assets/logo_1.png">
 				<img class="fixed bottom-in delay-3 brand-logo" src="assets/logo_2.png">
 			</div>
@@ -30,20 +33,18 @@
 		<!-- page 3-->
 		<div class="page page3" data-idx="1">
 			<div class="contain">				
-				<img class="bg fadeIn" src="assets/bg.jpg">
 				<img class="fixed center-x label i1" style="margin-top:-1%" src="assets/p3/3-02.png">
-				<img class="fixed bubble i2" style="" src="assets/p3/3-03.png">
-				<img class="fixed left-in i3" style="" src="assets/p3/3-01.png">
-				<img class="fixed bubble delay-3 brand-logo" src="assets/logo_2.png">
-				<img class="fixed bottom-in delay-1 btn1" src="assets/p3/3-04_clip.png" onclick="page(2);" ontouchstart="page(2);">
-				<img class="fixed left-in delay-2 btn2" src="assets/p3/3-05_clip.png" onclick="page(7);" ontouchstart="page(7);">
-				<img class="fixed right-in delay-3 btn3" src="assets/p3/3-06_clip.png" onclick="goInstruction();" ontouchstart="goInstruction();">
+				<img class="fixed fadeIn duration-long i2" style="" src="assets/p3/3-03.png">
+				<img class="fixed fadeIn duration-long i3" style="" src="assets/p3/3-01.png">
+				<img class="fixed fadeIn duration-long delay-1 brand-logo" src="assets/logo_2.png">
+				<img class="fixed fadeIn duration-long delay-1 btn1" src="assets/p3/3-04_clip.png" onclick="page(2);" ontouchstart="page(2);">
+				<img class="fixed fadeIn duration-long delay-2 btn2" src="assets/p3/3-05_clip.png" onclick="page(7);" ontouchstart="page(7);">
+				<img class="fixed fadeIn duration-long delay-2 btn3" src="assets/p3/3-06_clip.png" onclick="goInstruction();" ontouchstart="goInstruction();">
 			</div>
 		</div>
 		<!-- page 4-->
 		<div class="page page4" data-idx="2">
 			<div class="contain">
-				<img class="bg fadeIn" src="assets/bg.jpg">
 				<img class="fixed top left full right-in" src="assets/p4/4-02.png">
 				<img class="fixed right-in delay-3 btn1" src="assets/p4/4-03_clip.png" onclick="p4.pick(0);" ontouchstart="p4.pick(0);">
 				<img class="fixed left-in btn2" src="assets/p4/4-04_clip.png" onclick="p4.pick(1);" ontouchstart="p4.pick(1);">
@@ -55,7 +56,6 @@
 		<!-- page 5-->
 		<div class="page page5" data-idx="3">
 			<div class="contain">
-				<img class="bg fadeIn" src="assets/bg.jpg">
 				<img class="fixed label" style="margin-top:-1%" src="assets/p5/5-00.png">
 				<img class="fixed bottom-in delay-4 brand-logo" src="assets/logo_2.png">
 				<img class="fixed bubble delay-3 center-x canvas" src="assets/p5/5-05_clip.png">
@@ -71,7 +71,6 @@
 		<!-- page 6, idx 4 -->
 		<div class="page page6" data-idx="4">
 			<div class="contain">
-				<img class="bg fadeIn" src="assets/bg.jpg">
 				<img class="fixed label delay-0 label1" src="assets/p6/6-02_clip.png">
 				<img class="fixed bubble delay-4 center-x canvas" src="assets/p6/6-05_clip.png">
 				<img class="fixed left-in delay-0 btn1" src="assets/p6/6-03_clip.png" onclick="page(3);" ontouchstart="page(3);">
@@ -88,7 +87,6 @@
 		<!-- page 7 -->
 		<div class="page page7" data-idx="5"> 
 			<div class="contain">
-				<img class="bg fadeIn" src="assets/bg.jpg">
 				<img class="fixed label delay-0 label1" src="assets/p7/7-02_clip.png">
 				<img class="fixed bubble canvas" src="assets/p7/7-03_clip.png">
 				<img class="fixed bubble t-shirt t-shirt-1" src="assets/t-1.png">
@@ -133,7 +131,6 @@
 		</div>
 		<div class="page page8" data-idx="6">
 			<div class="contain">
-				<img class="bg fadeIn" src="assets/bg.jpg">
 				<div class="overlay" style="display:block;">
 					<img class="fixed label delay-0 label0" src="assets/p9/9-02_clip.png">	
 					<img class="fixed delay-0 icon1" src="assets/p9/9-03_clip.png">	
@@ -163,14 +160,13 @@
 
 					<img class="fixed left-in delay-2 btn1" src="assets/p9/9-06_clip.png" onclick="p8.favor();" ontouchstart="p8.favor();">
 					<img class="fixed right-in delay-2 btn2" src="assets/p9/9-07_clip.png" onclick="p8.start();" ontouchstart="p8.start();">
-					<img class="fixed right-in delay-3 btn3" src="assets/p9/9-08_clip.png" onclick="p8.close();" ontouchstart="p8.close();">
+					<img class="fixed right-in delay-3 btn3" src="assets/p9/9-08_clip.png" onclick="page(7);" ontouchstart="page(7);">
 				</div>
 			</div>
 		</div>
 
 		<div class="page page9" data-idx="7">
 			<div class="contain">
-				<img class="bg fadeIn" src="assets/bg.jpg">
 				<img class="fixed label delay-0" src="assets/p10/10-02_clip.png">	
 				<img class="fixed bubble delay-3 brand-logo" src="assets/logo_2.png">
 				<img class="fixed tab bubble" src="assets/p10/10-03_clip.png">
@@ -179,8 +175,8 @@
 				<img class="fixed list bubble" src="assets/p10/10-04_clip.png">
 				<div class="fixed list-container">
 				</div>
-				<img class="fixed left-in delay-1 btn1" src="assets/p10/10-07_clip.png">
-				<img class="fixed bottom-in delay-2 btn2" src="assets/p10/10-08_clip.png" onclick="p8.start();" ontouchstart="p8.start();">
+				<img class="fixed left-in delay-1 btn1" src="assets/p10/10-07_clip.png" onclick="p9.search();" ontouchstart="p9.search();">
+				<img class="fixed bottom-in delay-2 btn2" src="assets/p10/10-08_clip.png" onclick="p8.start();" ontouchstart="p9.start();">
 			</div>
 		</div>
 	</div>

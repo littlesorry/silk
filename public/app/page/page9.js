@@ -9,6 +9,13 @@ define(['jquery'], function($) {
 			var id = $(this).data("id");
 			window.location = "/?id=" + id+ "#6"
 		});
+
+		$("body").on("touchstart", ".dialog .btn", function() {
+			if (!$(".dialog input").val()) {
+				return;
+			}
+			window.location = "/?no=" + $(".dialog input").val() + "#6";
+		});
 	};
 
 	p9.tab = function(idx) {
@@ -31,6 +38,16 @@ define(['jquery'], function($) {
 
 	p9.render = function() {
 		p9.latest();
+	};
+
+	p9.search = function() {
+		var html = "<input type='text' maxlength='5' placeholder='输入编号'>"
+					+ "<div class='btn'>确定</div>";
+		$('.dialog').html(html).show();
+	};
+
+	p9.start = function() {
+		page(1);
 	};
 
 	p9.latest = function() {
