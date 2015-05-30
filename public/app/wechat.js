@@ -3,7 +3,7 @@ define(['jquery', 'wx'], function($, wx) {
 	var wechat = {};
 
 	var host = 'http://elgame.gofaner.com/';
-	var img = 'http://elgame.gofaner.com/assets/img_96.jpg';
+	var img = 'http://elgame.gofaner.com/assets/icon.jpg';
 
 	wechat.init = function() {
         wx.showOptionMenu();
