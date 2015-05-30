@@ -35,7 +35,7 @@ define(['jquery', 'd3', 'page5'], function($, d3, p5) {
 
     p6.thickLine = function() {
         $('.page6 .sub-btn').removeClass("active").eq(2).addClass("active");
-        d3.setSilkWidth(72);
+        d3.setSilkWidth(64);
         p6.render();
     };
 

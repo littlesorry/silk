@@ -17,17 +17,31 @@ define(['jquery', 'wechat'], function($, wechat) {
 	var p8 = {};
 
 	p8.render = function() {
-		var id = getParam("id");
-		if (typeof id === "undefined" || id === "" || id === "undefined") {
-			$(".dialog").html("无效的作品号！").show();
-			setTimeout(function() {
-				$(".dialog").hide();
-			}, 2000);
-			return;
+		var ajax;
+		if (/no=/.test(window.location.search)) {
+			// no search;
+			var no = getParam("no");
+			if (typeof no === "undefined" || no === "" || no === "undefined") {
+				$(".dialog").html("无效的作品号！").show();
+				setTimeout(function() {
+					$(".dialog").hide();
+				}, 2000);
+				return;
+			}
+			ajax = $.getJSON("/masterpiece/no/" + no);
+		} else {
+			var id = getParam("id");
+			if (typeof id === "undefined" || id === "" || id === "undefined") {
+				$(".dialog").html("无效的作品号！").show();
+				setTimeout(function() {
+					$(".dialog").hide();
+				}, 2000);
+				return;
+			}
+			ajax = $.getJSON("/masterpiece/" + id);
 		}
 
-		$.getJSON("/masterpiece/" + id)
-		.done(function(resp) {
+		ajax.done(function(resp) {
 			wechat.shareTimeline(id);
 			$(".page8 .t-shirt").hide().eq(resp.tshirt || 0).show();
 			$(".page8 .label1 span").text(resp.no);
@@ -79,6 +93,10 @@ define(['jquery', 'wechat'], function($, wechat) {
 
 	p8.start = function() {
 		window.location = "/";
+	};
+
+	p8.goList = function() {
+
 	};
 
 	p8.close = function() {
