@@ -1,0 +1,1 @@
+db.masterpiece.createIndex( { no: 1 } );
