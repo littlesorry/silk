@@ -39,5 +39,8 @@ define(['jquery', 'd3', 'page5'], function($, d3, p5) {
         p6.render();
     };
 
+    p6.confirm = function() {
+    };
+
 	return p6;
 });

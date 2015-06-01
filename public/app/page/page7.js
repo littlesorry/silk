@@ -79,6 +79,11 @@ define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
             return;
         }
 
+        if ($(".page7 .btn2").hasClass("disable")) {
+            return;
+        }
+        $(".page7 .btn2").addClass("disable");
+
 		var data = {
 			dataURL: d3.toData()
 			, tshirt: p4.picked || 0
@@ -89,12 +94,14 @@ define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
 
         NP.start();
 		$.post('/masterpiece/', data).done(function(resp) {
-            NP.done();
 			$(".page7 .info").show();
 			setTimeout(function() {
 				window.location = "/?id=" + resp.id + "#6";
 			}, 2000);
-		});
+		}).always(function() {
+            NP.done();
+            $(".page7 .btn2").removeClass("disable");
+        });
 	};
 
 	return p7;
