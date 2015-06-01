@@ -74,6 +74,10 @@ define(['jquery', 'jtap', 'nprogress'], function($, jtap, NP) {
 				window.location = "/?id=" + id+ "#6";
 			});
 		}
+		$(".page9 .list-container")
+			.append('<div class="fixed list-item">')
+			.append('<div class="fixed list-item">');
+
 		NP.done();
 	}
 

@@ -191,8 +191,8 @@ img.full {
 .page6 .label1 {
 	width: 288px;
 	top: 4%;
-	left: 6%;
-
+	left: 50%;
+	margin-left: -144px;
 }
 
 .page6 .canvas {
@@ -490,6 +490,14 @@ img.full {
 	margin-left: -120px;
 	width: 240px;
 	height: 240px;
+}
+
+.page8 .comment {
+	top: 22%;
+	margin-top: 270px;
+	width: 100%;
+	text-align: center;
+	color: #a51d55;
 }
 
 .page8 .btn1, .page8 .btn2, .page8 .btn3 {
@@ -1135,7 +1143,7 @@ canvas {
 	.page8 .label0, .page8 .icon1{top:0.5%;}
 	.page8 .label1 {top: 6%;font-size: 12px;}
 	.page8 .label1 span {line-height: 12px;font-size: 14px;}
-	.page8 .canvas{top:16%;}
+	.page8 .canvas, .page8 .comment{top:16%;}
 	.page8 .info, .page8 .favor {top: 18%;}
 	.page8 .t-shirt {top:24.5%;}
 	.page8 .work{top: 23%;}

@@ -54,6 +54,8 @@ define(['jquery', 'wechat'], function($, wechat) {
 			$(".page8 .info .author").text(resp.author);
 			$(".page8 .info").show();
 
+			$(".page8 .comment").text(resp.comment).show();
+
 			var img = $(".page8 .work").get(0);
 			img.onload = function() {
 				$(".page .work").show();
@@ -85,7 +87,7 @@ define(['jquery', 'wechat'], function($, wechat) {
 			, method: "PUT"
 		}).done(function(resp) {
 			localStorage["favor" + id] = 1;
-			$(".page8 .favor span").text(resp.favor);
+			$(".page8 .favor span").text(resp.favor + 1);
 			$(".page8 .msg").show();
 			setTimeout(function() {
 				$(".page8 .msg").hide();

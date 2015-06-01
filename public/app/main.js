@@ -90,9 +90,15 @@ require(['jquery', 'fullPage', 'd2', 'd3', 'page', 'wechat'], function($, FullPa
             }
             , callback : function(index, thisPage) {       // callback when pageChange
                 window.location.hash = $(thisPage).data("idx");
-                if (!$(thisPage).hasClass('page1')) {
+                if ($(thisPage).hasClass('page5') 
+                    || $(thisPage).hasClass('page7')
+                    || $(thisPage).hasClass('page9')) {
                     document.ontouchstart = preOntouch;
-                } 
+                } else {
+                    document.ontouchstart = function(e){ 
+                        e.preventDefault(); 
+                    };
+                }
 
                 if ($(thisPage).hasClass('page5')) {
                 } else if ($(thisPage).hasClass('page6')) {

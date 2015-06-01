@@ -4,6 +4,12 @@ define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
 
 	p7.render = function() {
 		$(".page7 .t-shirt").hide().eq(p4.picked || 0).show();
+        $(".page7 .input").each(function() {
+            if ($(this).val() !== "") {
+                $(this).addClass("changed");
+            }
+        });
+
         var canvas = p7.preview.canvas;
         var img = new Image();
         img.onload = function() {
@@ -26,22 +32,24 @@ define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
     };
     p7.hidePick = function(toUpdate) {
        if (toUpdate) {
-            $(".page7 .input1").val(p7.comment || "").addClass("changed");
+            $(".page7 .input1").val($(".page .input4").val() || p7.comment || "").addClass("changed");
         }
         setTimeout(function() {
             $(".step1-overlay").hide();
          }, 500);
     };
+
     p7.pickItem = function(idx) {
-        $(".msg li").removeClass("primary secondary");
-        $(".msg li:nth-child(" + idx + ")").addClass("primary");
+        $(".page7 .input4").val("").removeClass("changed");
+        $(".page7 .msg li").removeClass("primary secondary");
+        $(".page7 .msg li:nth-child(" + idx + ")").addClass("primary");
         if (idx > 1) {
-            $(".msg li:nth-child(" + (idx - 1) + ")").addClass("secondary");
+            $(".page7 .msg li:nth-child(" + (idx - 1) + ")").addClass("secondary");
         }
         if (idx < $(".msg li").size()) {
-            $(".msg li:nth-child(" + (idx + 1) + ")").addClass("secondary");
+            $(".page7 .msg li:nth-child(" + (idx + 1) + ")").addClass("secondary");
         }
-        p7.comment = $(".msg li:nth-child(" + (idx) + ")").text();
+        p7.comment = $(".page7 .msg li:nth-child(" + (idx) + ")").text();
     };
 
     function check() {
