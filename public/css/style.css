@@ -361,15 +361,20 @@ img.full {
 
 .page7 .input4 {
 	border: none;
-	height: 24px;
+	height: 28px;
 	width: 244px;
-	top: 8%;
+	top: 7.5%;
 	left: 50%;
 	margin-left: -122px;
-	background: url(../assets/p8/8-02_clip.png) no-repeat;
-    background-position: 1% 50%;
-    background-size: 100%;
+	font-size: 22px;
+	text-align: start;
+	border-bottom: 2px solid white;
+	padding-left: 2px;
 }
+.page7 .input4::-webkit-input-placeholder {
+	color: rgba(255, 255, 255, 0.8);
+}
+
 .page7 .step-label {
 	width: 244px;
 	top: 8%;
@@ -493,11 +498,15 @@ img.full {
 }
 
 .page8 .comment {
-	top: 22%;
+	top: 21.3%;
+	left: 50%;
+	width: 220px;
 	margin-top: 270px;
-	width: 100%;
+	margin-left: -110px;
 	text-align: center;
 	color: #a51d55;
+	font-size: 14px;
+	line-height: 16px;
 }
 
 .page8 .btn1, .page8 .btn2, .page8 .btn3 {

@@ -11,13 +11,37 @@ define(['jquery', 'jtap', 'nprogress'], function($, jtap, NP) {
 			}
 			window.location = "/?no=" + $(".dialog input").val() + "#6";
 		});
+
+		$(".page9 .list-container").scroll(function() {
+			if ($(".list-container .list-item:last").offset().top < $(window).height()) {
+				loadMore();
+			}
+		});
 	};
 
+	var loadingMore = false;
+	function loadMore() {
+		if (!loadingMore) {
+			loadingMore = true;
+			NP.start();
+			var ajax = p9.idx === 0 ? $.get("/masterpiece/lastest?no=10&offset=" + offset) 
+									: $.get("/masterpiece/favors?no=10&offset=" + offset);
+			ajax
+			.done(addList)
+			.always(function() {
+				NP.done();
+				loadingMore = false;
+			});
+		}
+	}
+
+	var offset = 0;
 	p9.tab = function(idx) {
 		if (idx === p9.idx) {
 			return;
 		}
 
+		offset = 0;
 		if (idx === 0) {
 			p9.idx = 0;
 			$(".page9 .list").attr("src", "assets/p10/10-04_clip.png");
@@ -46,9 +70,9 @@ define(['jquery', 'jtap', 'nprogress'], function($, jtap, NP) {
 	};
 
 	function addList(resp) {
-		for (var i = resp.length - 1; i >=0; i--) {
+		for (var i = 0; i < resp.length; i++) {
 			var masterpiece = resp[i];
-			if (masterpiece.dataURL.length <　20) {
+			if (!masterpiece.dataURL || masterpiece.dataURL.length <　20) {
 				continue;
 			}
 
@@ -67,30 +91,32 @@ define(['jquery', 'jtap', 'nprogress'], function($, jtap, NP) {
 			var div = $(html);
 			div.data("id", masterpiece._id);
 			div.find(".work").get(0).src = masterpiece.dataURL;
-			$(".page9 .list-container").prepend(div);
+			$(".page9 .list-container .inner").append(div);
 
 			div.tap(function() {
 				var id = $(this).data("id");
 				window.location = "/?id=" + id+ "#6";
 			});
 		}
-		$(".page9 .list-container")
-			.append('<div class="fixed list-item">')
-			.append('<div class="fixed list-item">');
-
-		NP.done();
+		offset += resp.length;
 	}
 
 	p9.latest = function() {
 		NP.start();
 		$.get("/masterpiece/lastest?no=10")
-		.done(addList);
+		.done(addList)
+		.always(function() {
+			NP.done();
+		});
 	};
 
 	p9.topFavor = function() {
 		NP.start();
 		$.get("/masterpiece/favors?no=10")
-		.done(addList);
+		.done(addList)
+		.always(function() {
+			NP.done();
+		});
 	};
 
 	return p9;
