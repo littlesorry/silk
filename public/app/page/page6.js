@@ -1,4 +1,4 @@
-define(['jquery', 'd3', 'page5'], function($, d3, p5) {
+define(['jquery', 'd3', 'nprogress', 'page5'], function($, d3, NP, p5) {
 	var p6 = {};
 
 	p6.init = function() {
@@ -15,10 +15,13 @@ define(['jquery', 'd3', 'page5'], function($, d3, p5) {
 	};
 
 	p6.render = function() {
+        NP.start();
     	d3.clear();
         for (var i = p5.d2.getPaths().length - 1; i >= 0; i--) {
             d3.addMeshes(p5.d2.getPaths()[i]);
         }
+
+        NP.done();
 	};
 
     p6.thinLine = function() {

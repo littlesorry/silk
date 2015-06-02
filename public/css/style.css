@@ -678,8 +678,8 @@ img.full {
 }
 
 canvas {
-	-webkit-animation: bubble 0.5s ease 1.5s both;
-	animation: bubble 0.5s ease 1.5s both;
+	-webkit-animation: bubble 0.5s ease 1.2s both;
+	animation: bubble 0.5s ease 1.2s both;
 }
 
 .sub-btn.active {
