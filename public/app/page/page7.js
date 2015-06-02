@@ -21,7 +21,7 @@ define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
 
 	p7.init = function() {
 		p7.preview = window.preview = initCanvas("pre-canvas", {
-									debug: true
+									readonly: true
                                     , width: $("#pre-canvas").width()
                                     , height: $("#pre-canvas").height()
                                     });
