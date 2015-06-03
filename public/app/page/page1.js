@@ -32,7 +32,8 @@ define(["jquery"], function($) {
 		$(".page1").on("touchend", function(e) {
 			if (/^123/.test(path)) {
 				$(".page1 .i2").removeClass('loop');
-				$(".page1 .i1_old").addClass("fadeOut")
+				$(".page1 .orbit").addClass("fadeOut");
+				$(".page1 .arrow").hide();
 				$(".page1 .i1_new").show();
 
 				setTimeout(function() {
