@@ -46,6 +46,7 @@ img.full {
 	height: 75px;
 }
 
+
 .page1 .p-start {
 	margin-top: 235px;
 	margin-left: -139px;
@@ -64,6 +65,51 @@ img.full {
 .page1 .i1, .page1 .i2{
 	top: 5%;
 	width: 320px;
+}
+
+.page1 .orbit {
+	width: 225px;
+	left: 50%;
+	margin-left: -116px;	
+	margin-top: 56px;
+}
+
+.page1 .arrow {
+	top: 5%;
+	left: 50%;
+	-webkit-transform-origin: 50% 50%;
+	-webkit-animation: arrow 4s linear 1s both;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+}
+
+.page1 .arrow1 {
+	width: 56px;
+	margin-left: -110px;
+	margin-top: 233px;
+	-webkit-animation-delay: 1.5s;
+}
+
+.page1 .arrow2 {
+	width: 45px;
+	margin-top: 137px;
+	margin-left: 25px;
+	-webkit-animation-delay: 3s;
+}
+
+.page1 .arrow3 {
+	width: 44px;
+	margin-top: 59px;
+	margin-left: 9px;
+	-webkit-animation-delay: 4.5s;
+}
+
+.page1 .arrow4 {
+	width: 45px;
+	margin-top: 244px;
+	margin-left: 27px;
+	-webkit-animation-delay: 6s;
+
 }
 
 .page1 .logo1 {
@@ -1015,6 +1061,25 @@ canvas {
 	}
 }
 
+
+@-webkit-keyframes arrow
+{
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(0.8);
+	}
+	20% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+	} 90%
+	{
+	} 97%
+	{
+	} 100%
+	{
+	}
+}
+
 @-webkit-keyframes fadeOut
 {
 	0% {
@@ -1117,7 +1182,7 @@ canvas {
 
 /** ip 4*/
 @media screen and (min-device-height : 410px) and (max-device-height: 465px) {
-	.page1 .i1, .page1 .i2, .page1 .point {top: -10%;}
+	.page1 .i1, .page1 .i2, .page1 .point, .page1 .arrow {top: -10%;}
 
 	.page3 .i1 {margin-top: -5%;}
 	.page3 .i2 {top:18%;}
