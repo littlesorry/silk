@@ -96,11 +96,13 @@ define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
 		$.post('/masterpiece/', data).done(function(resp) {
 			$(".page7 .info").show();
 			setTimeout(function() {
+                $(".page7 .btn2").removeClass("disable");
 				window.location = "/?id=" + resp.id + "#6";
 			}, 2000);
-		}).always(function() {
-            NP.done();
+		}).error(function() {
             $(".page7 .btn2").removeClass("disable");
+        }).always(function() {
+            NP.done();
         });
 	};
 
