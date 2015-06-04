@@ -12,6 +12,7 @@
 				"author": "string",
 				"paths": "array",
 				"dataURL": "string",
+				"scale": "number",
 				"tshirt": "number",
 				"mobile": "string",
 				"comment": "string",

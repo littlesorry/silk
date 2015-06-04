@@ -1,6 +1,8 @@
 define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
 
-	var p7 = {};
+	var p7 = {
+        scale: 10
+    };
 
 	p7.render = function() {
 		$(".page7 .t-shirt").hide().eq(p4.picked || 0).show();
@@ -10,21 +12,13 @@ define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
             }
         });
 
-        var canvas = p7.preview.canvas;
-        var img = new Image();
-        img.onload = function() {
-            p7.preview.ctx.drawImage(img, 0, 0, $("#d3-canvas").attr("width"), $("#d3-canvas").attr("height"), 
-                                        0, 0, canvas.width, canvas.height);  
+        $(".page7 .data-img").get(0).onload = function() {
+            $(".page7 .data-img").show();
         };
-        img.src = d3.toData();
+        $(".page7 .data-img").get(0).src = d3.toData();
 	};
 
 	p7.init = function() {
-		p7.preview = window.preview = initCanvas("pre-canvas", {
-									readonly: true
-                                    , width: $("#pre-canvas").width()
-                                    , height: $("#pre-canvas").height()
-                                    });
 	};
 
     p7.showPick = function() {
@@ -90,6 +84,7 @@ define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
 			, comment: $(".page7 .input1").val()
 			, author: $(".page7 .input2").val()
 			, mobile: $(".page7 .input3").val()
+            , scale: p7.scale
 		};
 
         NP.start();
@@ -105,6 +100,22 @@ define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
             NP.done();
         });
 	};
+
+    p7.small = function() {
+        if (p7.scale > 1) {
+            p7.scale -= 1;
+            $(".page7 .data-img").removeClass("s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s15 s16");
+            $(".page7 .data-img").addClass("s" + p7.scale);
+        }
+    };
+
+    p7.full = function() {
+        if (p7.scale < 19) {
+            p7.scale += 1;
+            $(".page7 .data-img").removeClass("s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s15 s16");
+            $(".page7 .data-img").addClass("s" + p7.scale);
+        }
+    };
 
 	return p7;
 });

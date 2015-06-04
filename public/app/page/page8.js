@@ -55,6 +55,9 @@ define(['jquery', 'wechat'], function($, wechat) {
 			$(".page8 .info").show();
 
 			$(".page8 .comment").text(resp.comment).show();
+			if (resp.scale) {
+				$(".page8 .work").addClass("s" + resp.scale);
+			}
 
 			var img = $(".page8 .work").get(0);
 			img.onload = function() {
