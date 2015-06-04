@@ -104,7 +104,7 @@ define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
     p7.small = function() {
         if (p7.scale > 1) {
             p7.scale -= 1;
-            $(".page7 .data-img").removeClass("s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s15 s16");
+            $(".page7 .data-img").removeClass("s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19");
             $(".page7 .data-img").addClass("s" + p7.scale);
         }
     };
@@ -112,7 +112,7 @@ define(['jquery', 'd3', 'nprogress', 'page4'], function($, d3, NP, p4) {
     p7.full = function() {
         if (p7.scale < 19) {
             p7.scale += 1;
-            $(".page7 .data-img").removeClass("s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s15 s16");
+            $(".page7 .data-img").removeClass("s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19");
             $(".page7 .data-img").addClass("s" + p7.scale);
         }
     };
