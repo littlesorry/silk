@@ -43,27 +43,34 @@ define(['jquery', 'wechat'], function($, wechat) {
 		}
 
 		ajax.done(function(resp) {
-			p8.id = resp.id;
-			wechat.shareTimeline(resp.id);
-			$(".page8 .t-shirt").hide().eq(resp.tshirt || 0).show();
-			$(".page8 .label1 span").text(resp.no);
-			$(".page8 .favor span").text(resp.favor);
-			$(".page8 .favor").show();
+			if (resp.id) {
+				p8.id = resp.id;
+				wechat.shareTimeline(resp.id);
+				$(".page8 .t-shirt").hide().eq(resp.tshirt || 0).show();
+				$(".page8 .label1 span").text(resp.no);
+				$(".page8 .favor span").text(resp.favor);
+				$(".page8 .favor").show();
 
-			$(".page8 .info .no").text(resp.no);
-			$(".page8 .info .author").text(resp.author);
-			$(".page8 .info").show();
+				$(".page8 .info .no").text(resp.no);
+				$(".page8 .info .author").text(resp.author);
+				$(".page8 .info").show();
 
-			$(".page8 .comment").text(resp.comment).show();
-			if (resp.scale) {
-				$(".page8 .work").addClass("s" + resp.scale);
+				$(".page8 .comment").text(resp.comment).show();
+				if (resp.scale) {
+					$(".page8 .work").addClass("s" + resp.scale);
+				}
+
+				var img = $(".page8 .work").get(0);
+				img.onload = function() {
+					$(".page .work").show();
+				};
+				img.src = resp.dataURL;
+			} else {
+				$(".dialog").html("作品号不存在！").show();
+				setTimeout(function() {
+					$(".dialog").hide();
+				}, 4000);
 			}
-
-			var img = $(".page8 .work").get(0);
-			img.onload = function() {
-				$(".page .work").show();
-			};
-			img.src = resp.dataURL;
 		});
 	};
 

@@ -325,18 +325,20 @@ img.full {
 
 .page7 .btn-scale {
 	top: 15%;
-	margin-top: 245px;
 	left: 50%;
+	fill: #a51d55;
+	width: 24px;
+	height: 24px;
+	margin-left: 80px;
 }
 
 .page7 .btn-small {
-	margin-left: -50px;
+	margin-top: 215px;
 }
 
 .page7 .btn-full {
-	margin-left: 30px;
+	margin-top: 175px;
 }
-
 
 .page7 .data-img {
 	top: 15%;
@@ -1364,6 +1366,10 @@ canvas {
 	.page7 .input2 {bottom: 14.25%}
 	.page7 .input1 {bottom: 20.75%}
 
+	.page7 .btn-scale {
+		top: 11%;
+	}
+
 	.page8 .label0, .page8 .icon1{top:0.5%;}
 	.page8 .label1 {top: 6%;font-size: 12px;}
 	.page8 .label1 span {line-height: 12px;font-size: 14px;}
@@ -1394,6 +1400,12 @@ canvas {
 	.page7 .input3 {
 		bottom: 11%;
 		height: 28px;
+	}
+
+	.page7 .btn-scale {
+		top: 12%;
+		height: 32px;
+		width: 32px;
 	}
 
 	.page7 .btn1, .page7 .btn2 {
@@ -1453,6 +1465,13 @@ canvas {
 		margin-left: -180px;
 	}
 
+	.page7 .btn-scale {
+		top: 13%;
+		margin-left: 90px;
+		height: 32px;
+		width: 32px;
+	}
+
 	.page8 .comment{top:22.2%;}
 
 	.page8 .info {
@@ -1500,6 +1519,14 @@ canvas {
 	.page7 .canvas {
 		width: 400px;
 		margin-left: -200px;
+	}
+
+	.page7 .btn-scale {
+		top: 16%;
+		margin-left: 100px;
+		height: 32px;
+		width: 32px;
+
 	}
 
 	.page7 .input {

@@ -84,10 +84,10 @@ var d3 = (function() {
 
           for (var i = -5; i <= 5; i++) {
             for (var j = -5; j <= 5; j++) {
-              var light1 = new THREE.PointLight( 0xf1a0c3, 1, 100 );
+              var light1 = new THREE.PointLight( 0xf1a0c3, 1, 120 );
               light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xf1a0c3 } ) ) );
-              light1.position.x = 120 * i;
-              light1.position.y = 100 * j;
+              light1.position.x = 60 * i;
+              light1.position.y = 50 * j;
               light1.position.z = 27;
               scene.add( light1 );
             }
