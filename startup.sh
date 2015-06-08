@@ -9,7 +9,7 @@ echo "
 list apps"
 forever list
 
-sleep 5
+sleep 3
 
 echo "
 log:"
