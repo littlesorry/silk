@@ -87,21 +87,21 @@ img.full {
 	width: 56px;
 	margin-left: -110px;
 	margin-top: 233px;
-	-webkit-animation-delay: 0.75s;
+	-webkit-animation-delay: 0.5s;
 }
 
 .page1 .arrow2 {
 	width: 45px;
 	margin-top: 137px;
 	margin-left: 25px;
-	-webkit-animation-delay: 1.25s;
+	-webkit-animation-delay: 1s;
 }
 
 .page1 .arrow3 {
 	width: 44px;
 	margin-top: 59px;
 	margin-left: 9px;
-	-webkit-animation-delay: 1.75s;
+	-webkit-animation-delay: 1.65s;
 }
 
 .page1 .arrow4 {
