@@ -9,7 +9,15 @@ define(['jquery', 'jtap', 'nprogress'], function($, jtap, NP) {
 			if (!$(".dialog input").val()) {
 				return;
 			}
-			window.location = "/?no=" + $(".dialog input").val() + "#6";
+
+			$.get('/masterpiece/count?no=' + $(".dialog input").val())
+			.done(function(resp) {
+				if (resp.count && resp.count > 0) {
+					window.location = "/?no=" + $(".dialog input").val() + "#6";
+				} else {
+					alert('作品号不存在！');
+				}
+			});
 		});
 
 		$(".page9 .list-container").scroll(function() {
