@@ -78,7 +78,7 @@ img.full {
 	top: 5%;
 	left: 50%;
 	-webkit-transform-origin: 50% 50%;
-	-webkit-animation: arrow 4s linear 1s both;
+	-webkit-animation: arrow 2s linear 1s both;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 }
@@ -87,29 +87,28 @@ img.full {
 	width: 56px;
 	margin-left: -110px;
 	margin-top: 233px;
-	-webkit-animation-delay: 1.5s;
+	-webkit-animation-delay: 0.75s;
 }
 
 .page1 .arrow2 {
 	width: 45px;
 	margin-top: 137px;
 	margin-left: 25px;
-	-webkit-animation-delay: 3s;
+	-webkit-animation-delay: 1.5s;
 }
 
 .page1 .arrow3 {
 	width: 44px;
 	margin-top: 59px;
 	margin-left: 9px;
-	-webkit-animation-delay: 4.5s;
+	-webkit-animation-delay: 2.25s;
 }
 
 .page1 .arrow4 {
 	width: 45px;
 	margin-top: 244px;
 	margin-left: 27px;
-	-webkit-animation-delay: 6s;
-
+	-webkit-animation-delay: 3s;
 }
 
 .page1 .logo1 {
