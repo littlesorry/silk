@@ -42,6 +42,10 @@ define(["jquery"], function($) {
 			}
 			path = "";
 		});
+
+		setTimeout(function() {
+			$(".page1 .arrow").addClass("anime-arrow");
+		}, 300);
 	};
 
 

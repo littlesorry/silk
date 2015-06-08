@@ -77,8 +77,11 @@ img.full {
 .page1 .arrow {
 	top: 5%;
 	left: 50%;
+}
+
+.page1 .anime-arrow {
+	-webkit-animation: arrow 2s linear both;
 	-webkit-transform-origin: 50% 50%;
-	-webkit-animation: arrow 2s linear 1s both;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 }
