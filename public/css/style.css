@@ -28,14 +28,13 @@ body {
 .pageload-overlay::after,
 .pageload-overlay::before {
 	content: '';
-	position: fixed;
+	position: absolute;
 	width: 24px;
 	height: 24px;
 	top: 50%;
 	left: 50%;
 	margin: -12px 0 0 -12px;
 	border-radius: 50%;
-	z-index: 100;
 	-webkit-transition: opacity 0.15s, visibility 0s 0.15s;
 	transition: opacity 0.15s, visibility 0s 0.15s;
 }
@@ -57,19 +56,19 @@ body {
 }
 
 @-webkit-keyframes moveRight {
-	to { -webkit-transform: translateX(24px); }
+	to { -webkit-transform: translateX(20px); }
 }
 
 @keyframes moveRight {
-	to { transform: translateX(24px); }
+	to { transform: translateX(20px); }
 }
 
 @-webkit-keyframes moveLeft {
-	to { -webkit-transform: translateX(-24px); }
+	to { -webkit-transform: translateX(-20px); }
 }
 
 @keyframes moveLeft {
-	to { transform: translateX(-24px); }
+	to { transform: translateX(-20px); }
 }
 
 img.full {
@@ -136,7 +135,7 @@ img.full {
 }
 
 .page1 .anime-arrow {
-	-webkit-animation: arrow 2s linear both;
+	-webkit-animation: arrow 2s linear 0s infinite alternate;
 	-webkit-transform-origin: 50% 50%;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;

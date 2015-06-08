@@ -113,6 +113,8 @@ require(['jquery', 'fullPage', 'd2', 'd3', 'page', 'wechat'], function($, FullPa
             }
         });
 
+        $(".pageload-overlay").remove();
+
         window.runPage = runPage;
 
         function next() {
