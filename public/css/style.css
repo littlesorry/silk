@@ -885,6 +885,29 @@ img.full {
 	font-size: 24px;
 }
 
+.page10 .label {
+	width: 245px;
+	margin-left: -123px;
+	top: 7%;
+	left: 50%;
+}
+
+.page10 .icon1 {
+	width: 176px;
+	margin-left: -88px;
+	margin-top: 80px;
+	left: 50%;
+	top: 10%;
+}
+
+.page10 .btn1 {
+	width: 118px;
+	margin-left: -59px;
+	margin-top: 265px;
+	left: 50%;
+	top: 12%;
+}
+
 .page-instruction {
 	background: url(../assets/instruction.jpg) top;
 }
