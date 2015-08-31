@@ -2,7 +2,8 @@ requirejs.config({
     baseUrl: '/',
     waitSeconds: 60,
     paths: {
-        'jquery': '//libs.baidu.com/jquery/1.11.1/jquery.min',
+        // 'jquery': '//libs.baidu.com/jquery/1.11.1/jquery.min',
+        'jquery': '//cdn.bootcss.com/jquery/1.11.1/jquery.min',
         'jtap': 'lib/jtap',
         'nprogress': 'lib/nprogress',
         'fullPage': 'lib/fullPage',
