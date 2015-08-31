@@ -7,7 +7,7 @@ requirejs.config({
         'nprogress': 'lib/nprogress',
         'fullPage': 'lib/fullPage',
         // 'three': 'lib/three',
-        'three': '//cdn.bootcss.com/three.js/r71/three.min.js',
+        'three': '//cdn.bootcss.com/three.js/r71/three.min',
         'project': 'lib/three-project',
         'renderer': 'lib/three-renderer',
         'camera': 'lib/three-camera',
