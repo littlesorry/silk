@@ -140,7 +140,7 @@ require(['jquery', 'fullPage', 'd2', 'd3', 'page', 'wechat'], function($, FullPa
         window.page = page;
         window.goInstruction = goInstruction;
 
-        if (window.location.hash) {
+        if (window.location.hash && /\d+/.test(window.location.hash.replace("#", ""))) {
             runPage.go(window.location.hash.replace("#", ""));
         }
 
