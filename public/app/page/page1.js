@@ -38,7 +38,7 @@ define(["jquery"], function($) {
 
 				setTimeout(function() {
 					page(1);
-				}, 3000);
+				}, 800);
 			}
 			path = "";
 		});
