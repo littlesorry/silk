@@ -912,6 +912,10 @@ img.full {
 	background: url(../assets/instruction.jpg) top;
 }
 
+.list-item .work {
+	margin-top: 8px;
+}
+
 /** comps */
 .overlay {
 	display: none;
