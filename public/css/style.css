@@ -291,11 +291,11 @@ img.full {
 	z-index: 100;
 }
 
-.page5 .hint {
-	width: 211px;
+.page5 .btn5 {
+	width: 240px;
 	left: 50%;
-	margin-left: -105px;
-	bottom: 8px;
+	margin-left: -120px;
+	bottom: 2px;
 	z-index: 99;
 }
 
@@ -1439,6 +1439,11 @@ canvas {
 	.page5 .label {margin-top: -3.5%;width: 260px;margin-left: -130px;}
 	.page5 .btn1, .page5 .btn2, .page5 .btn3 {top: 10%;}
 	.page5 .btn4 {bottom: 0.5%;width: 130px;margin-left: -65px;}
+	.page5 .btn5 {
+		bottom: 1px;
+		display: none;
+	}
+
 	.page5 .canvas {top:11%;}
 	.page5 #canvas {top: 17%;}
 
@@ -1477,6 +1482,9 @@ canvas {
 @media screen and (min-device-height : 510px) {
 	.page3 .i3 {
 		bottom: 35%;
+	}
+	.page5 .btn5 {
+		bottom: 2.5px;
 	}
 
 	.page7 .input1 {
@@ -1531,6 +1539,10 @@ canvas {
 		width: 180px;
 		margin-left: -90px;
 		bottom: 10%;
+	}
+
+	.page5 .btn5 {
+		bottom: 4px;
 	}
 
 	.page6 .btn1 {
@@ -1607,6 +1619,9 @@ canvas {
 		margin-left: 16px;
 	}
 
+	.page5 .btn5 {
+		bottom: 8px;
+	}
 
 	.page7 .canvas {
 		width: 400px;
