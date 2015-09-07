@@ -291,6 +291,14 @@ img.full {
 	z-index: 100;
 }
 
+.page5 .hint {
+	width: 211px;
+	left: 50%;
+	margin-left: -105px;
+	bottom: 8px;
+	z-index: 99;
+}
+
 .page6 .label1 {
 	width: 288px;
 	top: 4%;
