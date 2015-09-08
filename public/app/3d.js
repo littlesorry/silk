@@ -9,6 +9,9 @@ var d3 = (function() {
 		meshes: [],
 		silkWidth: 24,
 		offsetAnchorX: 3,
+		maxX: 0,
+		maxY: 0,
+		minY: 0,
 		material: new THREE.MeshPhongMaterial({color: 0xad006f, shading: THREE.FlatShading, side: THREE.DoubleSide}),
 		init: function(elem, props) {
 			this.elem = elem = elem || "canvas";
@@ -150,8 +153,16 @@ var d3 = (function() {
 			if (points && points.length > 1) {
                 points = averagePoints((points));
 				for (var i = 0; i < points.length - 1; i++) {
-					this.addMesh(translate(points[i], this.offsetX, this.offsetY)
-								, translate(points[i + 1], this.offsetX, this.offsetY));		
+					var p1 = translate(points[i], this.offsetX, this.offsetY);
+					var p2 = translate(points[i + 1], this.offsetX, this.offsetY);
+					this.addMesh(p1, p2);
+					if (Math.max(Math.abs(p1.x), Math.abs(p2.x)) > d3.maxX) {
+						d3.maxX = Math.max(Math.abs(p1.x), Math.abs(p2.x));
+					}
+
+					if (Math.min(p1.y, p2.y) < d3.minY) {
+						d3.minY = Math.min(p1.y, p2.y);
+					}
 				}
 			}
 
@@ -167,6 +178,9 @@ var d3 = (function() {
                 }
             }
             this.render();
+            d3.minY = 0;
+            d3.maxX = 0;
+            d3.maxY = 0;
 		},
 
 		setSilkWidth: function(width) {
