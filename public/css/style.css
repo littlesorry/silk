@@ -540,6 +540,34 @@ img.full {
 }
 
 
+.page7 .data-img.s0, .page8 .work.s0 {
+	margin-left: -70px;
+	margin-top: 45px;
+	width: 140px;
+	height: 140px;
+}
+
+.page7 .data-img.s-1, .page8 .work.s-1 {
+	margin-left: -65px;
+	margin-top: 50px;
+	width: 130px;
+	height: 130px;
+}
+
+.page7 .data-img.s-2, .page8 .work.s-2 {
+	margin-left: -60px;
+	margin-top: 55px;
+	width: 120px;
+	height: 120px;
+}
+
+.page7 .data-img.s-3, .page8 .work.s-3 {
+	margin-left: -55px;
+	margin-top: 60px;
+	width: 110px;
+	height: 110px;
+}
+
 .page7 .input1 {
 	bottom: 21%;
 	height: 24px;
