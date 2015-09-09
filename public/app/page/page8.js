@@ -72,6 +72,16 @@ define(['jquery', 'wechat'], function($, wechat) {
 				}, 4000);
 			}
 		});
+
+		p8.debug();
+	};
+
+	p8.debug = function() {
+        if (!/debug/.test(window.location.search)) {
+        	return;
+        }
+
+        alert("p8 canvas w: " + $(".page8 .canvas").css("width"));
 	};
 
 	p8.favor = function() {

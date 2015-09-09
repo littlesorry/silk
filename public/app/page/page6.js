@@ -24,6 +24,9 @@ define(['jquery', 'd3', 'nprogress', 'page5'], function($, d3, NP, p5) {
         NP.done();
 	};
 
+    p6.debug = function() {
+    };
+
     p6.thinLine = function() {
         $('.page6 .sub-btn').removeClass("active").eq(0).addClass("active");
         d3.setSilkWidth(24);
