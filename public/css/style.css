@@ -1507,7 +1507,7 @@ canvas {
 }
 
 /** ip 5 */
-@media screen and (min-height : 510px) {
+@media screen and (min-height : 501px) {
 	.page3 .i3 {
 		bottom: 35%;
 	}
@@ -1542,7 +1542,7 @@ canvas {
 }
 
 /** ip 6 */
-@media screen and (min-height : 620px) {
+@media screen and (min-height : 602px) {
 	.page1 .i2 {
 		top: 12%;
 	}
@@ -1624,7 +1624,7 @@ canvas {
 }
 
 /** ip 6+ */
-@media screen and (min-height : 700px) {
+@media screen and (min-height : 690px) {
 	.page4 .btn1, .page4 .btn2 {
 		width: 165px;
 	}
