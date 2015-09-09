@@ -1453,7 +1453,7 @@ canvas {
 }
 
 /** ip 4*/
-@media screen and (min-device-height : 410px) and (max-device-height: 465px) {
+@media screen and (min-height : 410px) and (max-height: 465px) {
 	.page1 .i1, .page1 .i2, .page1 .point, .page1 .arrow {top: -10%;}
 
 	.page3 .i1 {margin-top: -5%;}
@@ -1507,7 +1507,7 @@ canvas {
 }
 
 /** ip 5 */
-@media screen and (min-device-height : 510px) {
+@media screen and (min-height : 510px) {
 	.page3 .i3 {
 		bottom: 35%;
 	}
@@ -1542,7 +1542,7 @@ canvas {
 }
 
 /** ip 6 */
-@media screen and (min-device-height : 620px) {
+@media screen and (min-height : 620px) {
 	.page1 .i2 {
 		top: 12%;
 	}
@@ -1624,7 +1624,7 @@ canvas {
 }
 
 /** ip 6+ */
-@media screen and (min-device-height : 700px) {
+@media screen and (min-height : 700px) {
 	.page4 .btn1, .page4 .btn2 {
 		width: 165px;
 	}
