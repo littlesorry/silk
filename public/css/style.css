@@ -416,125 +416,126 @@ img.full {
 
 .page7 .data-img.s19, .page8 .work.s19 {
 	margin-left: -165px;
-	margin-top: -45px;
+	margin-top: -40px;
 	width: 330px;
 	height: 330px;
 }
 
 .page7 .data-img.s18, .page8 .work.s18 {
 	margin-left: -160px;
-	margin-top: -40px;
+	margin-top: -35px;
 	width: 320px;
 	height: 320px;
 }
 
 .page7 .data-img.s17, .page8 .work.s17 {
 	margin-left: -155px;
-	margin-top: -35px;
+	margin-top: -30px;
 	width: 310px;
 	height: 310px;
 }
 
 .page7 .data-img.s16, .page8 .work.s16 {
 	margin-left: -150px;
-	margin-top: -30px;
+	margin-top: -25px;
 	width: 300px;
 	height: 300px;
 }
 
 .page7 .data-img.s15, .page8 .work.s15 {
 	margin-left: -145px;
-	margin-top: -25px;
+	margin-top: -20px;
 	width: 290px;
 	height: 290px;
 }
 
 .page7 .data-img.s14, .page8 .work.s14 {
 	margin-left: -140px;
-	margin-top: -20px;
+	margin-top: -15px;
 	width: 280px;
 	height: 280px;
 }
 
 .page7 .data-img.s13, .page8 .work.s13 {
 	margin-left: -135px;
-	margin-top: -15px;
+	margin-top: -10px;
 	width: 270px;
 	height: 270px;
 }
 
 .page7 .data-img.s12, .page8 .work.s12 {
 	margin-left: -130px;
-	margin-top: -10px;
+	margin-top: -5px;
 	width: 260px;
 	height: 260px;
 }
 
 .page7 .data-img.s11, .page8 .work.s11 {
 	margin-left: -125px;
-	margin-top: -5px;
+	margin-top: 0px;
 	width: 250px;
 	height: 250px;
 }
 
 .page7 .data-img.s9, .page8 .work.s9 {
 	margin-left: -115px;
+	margin-top: 5px;
 	width: 230px;
 	height: 230px;
 }
 
 .page7 .data-img.s8, .page8 .work.s8 {
 	margin-left: -110px;
-	margin-top: 5px;
+	margin-top: 10px;
 	width: 220px;
 	height: 220px;
 }
 
 .page7 .data-img.s7, .page8 .work.s7 {
 	margin-left: -105px;
-	margin-top: 10px;
+	margin-top: 15px;
 	width: 210px;
 	height: 210px;
 }
 
 .page7 .data-img.s6, .page8 .work.s6 {
 	margin-left: -100px;
-	margin-top: 15px;
+	margin-top: 20px;
 	width: 200px;
 	height: 200px;
 }
 
 .page7 .data-img.s5, .page8 .work.s5 {
 	margin-left: -95px;
-	margin-top: 20px;
+	margin-top: 25px;
 	width: 190px;
 	height: 190px;
 }
 
 .page7 .data-img.s4, .page8 .work.s4 {
 	margin-left: -90px;
-	margin-top: 25px;
+	margin-top: 30px;
 	width: 180px;
 	height: 180px;
 }
 
 .page7 .data-img.s3, .page8 .work.s3 {
 	margin-left: -85px;
-	margin-top: 30px;
+	margin-top: 35px;
 	width: 170px;
 	height: 170px;
 }
 
 .page7 .data-img.s2, .page8 .work.s2 {
 	margin-left: -80px;
-	margin-top: 35px;
+	margin-top: 40px;
 	width: 160px;
 	height: 160px;
 }
 
 .page7 .data-img.s1, .page8 .work.s1 {
 	margin-left: -75px;
-	margin-top: 40px;
+	margin-top: 45px;
 	width: 150px;
 	height: 150px;
 }
@@ -542,28 +543,28 @@ img.full {
 
 .page7 .data-img.s0, .page8 .work.s0 {
 	margin-left: -70px;
-	margin-top: 45px;
+	margin-top: 50px;
 	width: 140px;
 	height: 140px;
 }
 
 .page7 .data-img.s-1, .page8 .work.s-1 {
 	margin-left: -65px;
-	margin-top: 50px;
+	margin-top: 55px;
 	width: 130px;
 	height: 130px;
 }
 
 .page7 .data-img.s-2, .page8 .work.s-2 {
 	margin-left: -60px;
-	margin-top: 55px;
+	margin-top: 60px;
 	width: 120px;
 	height: 120px;
 }
 
 .page7 .data-img.s-3, .page8 .work.s-3 {
 	margin-left: -55px;
-	margin-top: 60px;
+	margin-top: 65px;
 	width: 110px;
 	height: 110px;
 }
@@ -1604,7 +1605,7 @@ canvas {
 		width: 32px;
 	}
 
-	.page8 .comment{top:22.2%;}
+	.page8 .comment{top:24.5%;}
 
 	.page8 .info {
 		margin-left: -130px;
@@ -1624,7 +1625,7 @@ canvas {
 }
 
 /** ip 6+ */
-@media screen and (min-height : 690px) {
+@media screen and (min-height : 670px) {
 	.page4 .btn1, .page4 .btn2 {
 		width: 165px;
 	}
@@ -1673,4 +1674,6 @@ canvas {
 	.page7 .t-shirt, .page7 #pre-canvas {
 		top: 20%;
 	}
+
+	.page7 .data-img { top: 19.5%;}
 }
