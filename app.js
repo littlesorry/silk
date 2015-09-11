@@ -21,7 +21,7 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true, cookie: {maxAge: 2400000}}));
+app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true, cookie: {maxAge: 4800000}}));
 
 requestDispatcher(app);
 
